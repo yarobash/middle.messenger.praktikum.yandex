@@ -1,0 +1,26 @@
+body {
+  background: var(--msgs-field-backgr);
+}
+
+.out-message {
+  margin: 0;
+  padding: 11px 11px 5px 11px;
+  box-sizing: border-box;
+  max-width: fit-content;
+  background: var(--out-msg-backgr);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  &__text-wrapper {
+    width: 200px;
+    height: 150px;
+    border: 1px solid red;
+  }
+
+  &__message-state {
+    width: 200px;
+    height: 10px;
+    border: 1px solid green;
+  }
+}
