@@ -2,9 +2,9 @@
   "name": "messenger",
   "version": "1.0.0",
   "description": "A simple browser messenger",
-  "main": "src/index.js",
   "scripts": {
-    "dev": "parcel src/index.hbs --port 3000 --open"
+    "dev": "parcel src/index.hbs --port 3000 --no-cache --open",
+    "build": "parcel build src/index.js"
   },
   "engines": {
     "node": "16.17.0",
@@ -27,14 +27,11 @@
     "url": "https://github.com/yarobash/middle.messenger.praktikum.yandex/issues"
   },
   "homepage": "https://github.com/yarobash/middle.messenger.praktikum.yandex#readme",
-  "dependencies": {
-    "handlebars": "^4.7.7"
-  },
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
+    "handlebars": "^4.7.7",
     "parcel": "^2.7.0",
     "postcss": "^8.4.16",
-    "postcss-loader": "^7.0.1",
     "postcss-mixins": "^9.0.3",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.8.0",
