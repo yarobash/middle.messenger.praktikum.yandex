@@ -1,8 +1,14 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    {{> out-message }}
-  </body>
-</html>
+<div class="chat-interface">
+  <div class="chats">
+  </div>
+  <div class="messaging">
+    <div class="user-controls">
+    </div>
+    <div class="messages">
+      {{> inMsgPart }}
+      {{> outMsgPart }}
+    </div>
+    <div class="messaging-controls">
+    </div>
+  </div>
+</div>

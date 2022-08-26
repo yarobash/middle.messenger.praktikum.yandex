@@ -1,2 +1,3 @@
-@import url(../../shared/styles/global.css);
+@import url(./chat.css);
 @import url(../../components/out-message/out-message.css);
+@import url(../../components/in-message/in-message.css);
