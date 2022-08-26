@@ -1,5 +1,9 @@
 :root {
-  --in-msg-backgr: #2496ED;
+  --in-msg-backgr: #2496EDE6;
   --out-msg-backgr: #2496EDCC;
   --msgs-field-backgr: #031F30;
+  --chats-field-backgr: #0F1C24;
+  --border-lines: #344658;
+  --service-text: #9CD4F7;
+  --msgs-text: #E0DDDD;
 }
