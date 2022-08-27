@@ -8,6 +8,8 @@ export default {
     imgSrc: fotik,
     imgAlt: 'Изображение фотоаппарата',
   },
-  name: 'Ярослав',
+  name: 'Иван',
   date: '27 августа',
+  imgTimeStamp: '11:57',
+  btnCaption: 'Профиль',
 }

@@ -1,0 +1,44 @@
+.get-profile {
+  box-sizing: border-box;
+  flex: 0 0 54px;
+  width: 100%;
+  padding: 0 10px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  border: 1px solid yellow;
+
+  &__btn {
+    background: none;
+    border: none;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 8px;
+
+    &:hover {
+      cursor: pointer;
+      & .get-profile__btn-caption {
+        color: var(--msgs-text);
+      }
+
+      & svg path {
+        stroke: var(--msgs-text);
+      }
+    }
+
+    & svg path {
+      transition: stroke .2s ease-in;
+    }
+  }
+
+  &__btn-caption {
+    color: var(--chats-text);
+    transition: color .2s ease-in;
+  }
+}

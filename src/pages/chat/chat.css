@@ -5,10 +5,14 @@
   flex-flow: row nowrap;
 }
 
-.chats {
+.lside {
   border-right: 1px solid var(--border-lines);
   width: clamp(250px, 25%, 320px);
   background: var(--chats-field-backgr);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .messaging {
