@@ -30,6 +30,10 @@
 .user-controls {
   flex: 0 0 54px;
   border-bottom: 1px solid var(--border-lines);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .messaging-controls {

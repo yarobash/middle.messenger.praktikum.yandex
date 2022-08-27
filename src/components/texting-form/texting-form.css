@@ -31,6 +31,7 @@
     border-radius: 32px;
     outline: none;
     font: normal 500 12/1.2 'Inter', sans-serif;
+    background: var(--default-white);
   }
 
   &__btn {

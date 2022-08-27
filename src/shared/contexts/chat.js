@@ -8,4 +8,5 @@ export default {
     imgSrc: fotik,
     imgAlt: 'Изображение фотоаппарата',
   },
+  name: 'Ярослав',
 }
