@@ -1,0 +1,8 @@
+.msgImg {
+  width: 316px;
+  height: 211px;
+
+  &_in {
+    align-self: flex-start;
+  }
+}
