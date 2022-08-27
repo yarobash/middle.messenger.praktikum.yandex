@@ -35,4 +35,43 @@
 .messaging-controls {
   flex: 0 0 54px;
   border-top: 1px solid var(--border-lines);
+  display: flex;
+  flex-flow: row nowrap;
+
+  &__attach {
+    flex: 0 0 32px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__attach-btn {
+    background: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    & svg {
+      transition: transform .1s ease-in;
+    }
+
+    &:hover {
+      cursor: pointer;
+      & svg {
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  &__texting {
+    flex: 1 1 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
 }
