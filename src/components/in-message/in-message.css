@@ -13,6 +13,14 @@
   &__text-wrapper {
     color: var(--msgs-text);
     font: normal 500 12px/1.2 'Inter', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 14px 0;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
   }
 
   &__message-state {
