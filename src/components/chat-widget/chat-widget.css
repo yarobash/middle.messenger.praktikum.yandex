@@ -5,7 +5,7 @@
 
   &:hover {
     cursor: pointer;
-    background: linear-gradient(to top, var(--in-msg-backgr) 0, var(--in-msg-backgr) 99%, transparent 75%);
+    background: linear-gradient(to top, var(--chat-widget-hover) 0, var(--chat-widget-hover) 99%, transparent 75%);
   }
 
   &__body {

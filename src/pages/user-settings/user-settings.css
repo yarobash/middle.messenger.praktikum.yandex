@@ -1,0 +1,24 @@
+.user-settings {
+  width: 100%;
+  flex: 1 1 1px;
+  display: flex;
+  flex-flow: row nowrap;
+
+  &__lside {
+    border-right: 1px solid var(--border-lines);
+    width: 64px;
+    background: var(--chats-field-backgr);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__settings {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

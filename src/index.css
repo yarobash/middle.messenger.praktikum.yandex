@@ -2,6 +2,7 @@
 @import url(./shared/styles/global.css);
 @import url(./pages/index/index.css);
 @import url(./pages/chat/index.css);
+@import url(./pages/user-settings/index.css);
 
 body {
   margin: 0;
