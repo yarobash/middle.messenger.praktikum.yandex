@@ -1,0 +1,15 @@
+  .chat-widget {
+    margin: 0;
+    padding: 0 10px;
+    height: 69;
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(to top, var(--in-msg-backgr) 0, var(--in-msg-backgr) 99%, transparent 75%);
+    }
+
+  &__body {
+    height: 100%;
+    border-top: 1px solid var(--border-lines);
+  }
+}
