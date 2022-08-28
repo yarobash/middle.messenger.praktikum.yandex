@@ -15,6 +15,7 @@ import chatWidgetPart from '../../components/chat-widget/chatWidget.hbs';
 import userAvatarPart from '../../components/user-avatar/userAvatar.hbs';
 import userSettingsFormPart from '../../components/user-settings-form/userSettingsForm.hbs';
 import btnBackPart from '../../components/btn-back/btnBack.hbs';
+import signUpFormPart from '../../components/sign-up-form/signUpForm.hbs';
 
 export default () => {
   handlebars.registerPartial('outMsgPart', outMsgPart);
@@ -32,4 +33,5 @@ export default () => {
   handlebars.registerPartial('userAvatarPart', userAvatarPart);
   handlebars.registerPartial('userSettingsFormPart', userSettingsFormPart);
   handlebars.registerPartial('btnBackPart', btnBackPart);
+  handlebars.registerPartial('signUpFormPart', signUpFormPart);
 };

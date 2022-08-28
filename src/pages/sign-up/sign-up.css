@@ -1,0 +1,9 @@
+.sign-up {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
