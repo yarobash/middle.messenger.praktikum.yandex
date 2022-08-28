@@ -5,7 +5,7 @@
 @import url(./pages/user-settings/index.css);
 @import url(./pages/sign-up/index.css);
 @import url(./pages/sign-in/index.css);
-@import url(./pages/500/index.css);
+@import url(./pages/error-page/index.css);
 
 body {
   margin: 0;

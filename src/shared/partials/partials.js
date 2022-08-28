@@ -17,7 +17,7 @@ import userSettingsFormPart from '../../components/user-settings-form/userSettin
 import btnBackPart from '../../components/btn-back/btnBack.hbs';
 import signUpFormPart from '../../components/sign-up-form/signUpForm.hbs';
 import signInFormPart from '../../components/sign-in-form/signInForm.hbs';
-import err500Part from '../../components/err500/err500.hbs';
+import errorBoxPart from '../../components/error-box/errorBox.hbs';
 
 export default () => {
   handlebars.registerPartial('outMsgPart', outMsgPart);
@@ -37,5 +37,5 @@ export default () => {
   handlebars.registerPartial('btnBackPart', btnBackPart);
   handlebars.registerPartial('signUpFormPart', signUpFormPart);
   handlebars.registerPartial('signInFormPart', signInFormPart);
-  handlebars.registerPartial('err500Part', err500Part);
+  handlebars.registerPartial('errorBoxPart', errorBoxPart);
 };
