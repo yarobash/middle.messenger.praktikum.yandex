@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0f15c270-1afb-4e0f-9efe-83fcfcbd15f7/deploy-status)](https://app.netlify.com/sites/helpful-frangipane-073223/deploys)
+
 # Спринт 1
 Реализация компонентов приложения "Мессенджер" с помощью шаблонизатора handlebars.
 
