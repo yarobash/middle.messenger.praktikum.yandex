@@ -1,12 +1,7 @@
 <div class="chats">
   <ul class="chats__list">
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
-    {{> chatWidgetPart }}
+    {{#each chatsWidgets }}
+      {{> chatWidgetPart this }}
+    {{/each}}
   </ul>
 </div>
