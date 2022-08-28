@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel serve src/index.html --port 3000 --no-cache --open",
     "build": "parcel build src/index.html --no-source-maps",
-    "local": "npm run build && node server.js"
+    "start": "npm run build && node server.js"
   },
   "repository": {
     "type": "git",

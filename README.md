@@ -16,4 +16,4 @@ npm run dev
 npm run build
 
 ## Локальный запуск готового проекта
-npm run local
+npm run start
