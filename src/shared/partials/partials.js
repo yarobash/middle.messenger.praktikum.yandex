@@ -16,6 +16,7 @@ import userAvatarPart from '../../components/user-avatar/userAvatar.hbs';
 import userSettingsFormPart from '../../components/user-settings-form/userSettingsForm.hbs';
 import btnBackPart from '../../components/btn-back/btnBack.hbs';
 import signUpFormPart from '../../components/sign-up-form/signUpForm.hbs';
+import signInFormPart from '../../components/sign-in-form/signInForm.hbs';
 
 export default () => {
   handlebars.registerPartial('outMsgPart', outMsgPart);
@@ -34,4 +35,5 @@ export default () => {
   handlebars.registerPartial('userSettingsFormPart', userSettingsFormPart);
   handlebars.registerPartial('btnBackPart', btnBackPart);
   handlebars.registerPartial('signUpFormPart', signUpFormPart);
+  handlebars.registerPartial('signInFormPart', signInFormPart);
 };
