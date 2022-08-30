@@ -1,0 +1,33 @@
+.chats {
+  box-sizing: border-box;
+  width: 100%;
+  max-height: calc(100vh - 101px);
+  overflow-y: scroll;
+  overflow-x: hidde;
+  
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item:last-child &__widget-body {
+    border-bottom: 1px solid var(--border-lines);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--chats-text);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--msgs-text);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--default-white);
+}

@@ -1,0 +1,38 @@
+@import url(./shared/styles/fonts.css);
+@import url(./shared/styles/global.css);
+@import url(./pages/index/index.css);
+@import url(./pages/chat/index.css);
+@import url(./pages/user-settings/index.css);
+@import url(./pages/sign-up/index.css);
+@import url(./pages/sign-in/index.css);
+@import url(./pages/error-page/index.css);
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--msgs-field-backgr);
+}
+
+.main {
+  width: 100%;
+  flex: 1 1 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  flex: 1 1 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
