@@ -1,11 +1,13 @@
-class EventBus {
-  private readonly listeners: Record<string, Array<(...targs: any[]) => void>> = {};
+type evtHandler<A extends any[] = unknown[]> = (...args: A) => void;
+
+export class EventBus {
+  private readonly listeners: Record<string, evtHandler[]> = {};
 
   constructor() {
     this.listeners = {};
   }
 
-  on(event: string, callback: () => void) {
+  on(event: string, callback: evtHandler) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -13,7 +15,7 @@ class EventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event: string, callback: () => void) {
+  off(event: string, callback: evtHandler) {
     if (!this.listeners[event]) {
       throw new Error(`Несуществующее событие: ${event}`);
     }
@@ -21,7 +23,7 @@ class EventBus {
     this.listeners[event] = this.listeners[event].filter(cb => cb !== callback);
   }
 
-  emit(event: string, ...args: any[]) {
+  emit(event: string, ...args: unknown[]) {
     if (!this.listeners[event]) {
       throw new Error(`Несуществующее событие: ${event}`);
     }
