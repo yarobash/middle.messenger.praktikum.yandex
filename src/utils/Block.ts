@@ -27,26 +27,27 @@ class Block {
     this.props = this.#makePropsProxy(props);
 
     this.eventBus = () => eventBus;
+  }
 
-    #makePropsProxy(props: any) {
-      const self = this;
+  #makePropsProxy(props: any) {
+    const self = this;
+    return new Proxy(props, {
+      get(target, prop) {
+        const value = target[prop];
+        return typeof value === 'function' ? value.bind(target) : value;
+      },
 
-      return new Proxy(props, {
-        get(target, prop) {
-          const value = target[prop];
-          return typeof value === 'function' ? value.bind(target) : value;
-        },
+      set(target, prop, value) {
+        const oldTarget = { ...target };
 
-        set(target, prop, value) {
-          const oldTarget = { ...target };
+        target[prop] = value;
+        self.eventBus().emit(Block.EVENTS.FLOW_CDM, oldTarget, target);
+        return true;
+      },
 
-          target[prop] = value;
-          self.eventBus().emit(Block.EVENTS.FLOW_CDM, oldTarget, target);
-          return true;
-        },
-
-        deleteProperty() {
-          throw new Error('Access denied');
-        }
-      });
-    }
+      deleteProperty() {
+        throw new Error('Access denied');
+      }
+    });
+  }
+};
