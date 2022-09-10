@@ -25,12 +25,12 @@ class Block {
       props,
     };
 
-    this.props = this.#makePropsProxy(props);
+    this.props = this.makePropsProxy(props);
 
     this.eventBus = () => eventBus;
   }
 
-  #makePropsProxy(props: any) {
+  private makePropsProxy(props: any) {
     const self = this;
     return new Proxy(props, {
       get(target, prop) {
