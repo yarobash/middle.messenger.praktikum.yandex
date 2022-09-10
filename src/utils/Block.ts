@@ -5,6 +5,7 @@ class Block {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
   } as const;
 
@@ -12,8 +13,8 @@ class Block {
   protected props: any;
   public children: Record<string, Block>;
   private eventBus: () => EventBus;
-  private #element: HTMLElement | null;
-  private #meta: { tagName: string; props: any;}
+  private element: HTMLElement | null;
+  private meta: { tagName: string; props: any;}
   
 
   constructor(tagName = 'div', props = {}) {
