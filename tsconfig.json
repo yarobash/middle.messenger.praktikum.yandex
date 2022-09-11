@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
@@ -17,5 +18,6 @@
       "DOM"
     ] 
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

@@ -1,48 +1,16 @@
-import registerAllPartials from './shared/partials/partials';
+import Button from "./components/dev-proc/Button";
+import Header from "./components/dev-proc/Header";
+import { render } from "./utils/renderDOM";
+import signInContext from './shared/contexts/sign-in';
 
-import indexPage from './pages/index/index.hbs';
-import chatPage from './pages/chat/chat.hbs';
-import userSettingsPage from './pages/user-settings/userSettings.hbs';
-import signUpPage from './pages/sign-up/signUp.hbs';
-import signInPage from './pages/sign-in/signIn.hbs';
-import errorPage from './pages/error-page/errorPage.hbs';
+const button = new Button({
+  className: 'my-class',
+  caption: 'Click me',
+});
 
-import chatPageContext from './shared/contexts/chat';
-import userSettingsPageContext from './shared/contexts/user';
-import signUpPageContext from './shared/contexts/sign-up';
-import signInPageContext from './shared/contexts/sign-in';
-import _500PageContext from './shared/contexts/500';
-import _404PageContext from './shared/contexts/404';
+const header = new Header({
+  ...signInContext
+});
 
-
-registerAllPartials();
-
-const content = document.querySelector('.content');
-
-content.innerHTML = indexPage();
-
-switch (window.location.pathname) {
-  case '/':
-    content.innerHTML = indexPage();
-    break;
-  case '/sign-in':
-    content.innerHTML = signInPage(signInPageContext);
-    break;
-  case '/sign-up':
-    content.innerHTML = signUpPage(signUpPageContext);
-    break;
-  case '/chat':
-    content.innerHTML = chatPage(chatPageContext);
-    break;
-  case '/user-settings':
-    content.innerHTML = userSettingsPage(userSettingsPageContext);
-    break;
-  case '/500':
-    content.innerHTML = errorPage(_500PageContext);
-    break;
-  case '/404':
-    content.innerHTML = errorPage(_404PageContext);
-    break;
-  default:
-    content.innerHTML = errorPage(_404PageContext);
-} 
+render('.content', header);
+render('.content', button);
