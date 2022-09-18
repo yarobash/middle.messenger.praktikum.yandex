@@ -2,9 +2,9 @@ type evtHandler<A extends any[] = unknown[]> = (...args: A) => void;
 type MapInterface<P> = P[keyof P];
 
 export default class EventBus <
-  E extends Record<string, string> = Record<string, string>,
-  Args extends Record<MapInterface<E>, any[]> = Record<string, any[]>
-  > {
+    E extends Record<string, string> = Record<string, string>,
+    Args extends Record<MapInterface<E>, any[]> = Record<string, any[]>
+  > { 
   private readonly listeners: {
     [K in MapInterface<E>]?: evtHandler<Args[K]>[]
   } = {};
