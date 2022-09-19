@@ -3,7 +3,14 @@ import { nanoid } from 'nanoid';
 
 type Props = Record<string, any>;
 
-export default class Block {
+export default abstract class Block {
+
+  /* 
+   * Утверждение к константе (as const) объектного типа
+   * рекурсивно помечает все его поля как readonly.
+   * Кроме того, все его поля, принадлежащие к примитивным
+   * типам, расцениваются как литеральные типы.
+   */
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
