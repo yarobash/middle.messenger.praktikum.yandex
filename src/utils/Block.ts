@@ -62,11 +62,11 @@ export default abstract class Block {
 
   private _render() {
     const fragment = this.render();
-    this._element!.append(fragment);
+    this._element!.innerHTML = fragment;
   }
 
-  protected render(): DocumentFragment {
-    return new DocumentFragment();
+  protected render(): string {
+    return '<div></div>';
   }
 
   private _componentDidMount() {
