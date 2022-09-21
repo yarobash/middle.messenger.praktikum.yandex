@@ -91,21 +91,21 @@ export default abstract class Block {
   }
 
   getContent() {
-    return this._element;
+    return this._element?.firstChild;
   }
 
-  private makePropsProxy(props: any) {
+  private makePropsProxy(props: Record<string, any>) {
     return new Proxy(props, {
-      get: (target, prop) => {
+      get: (target: Record<string, any>, prop: string) => {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
 
-      set: (target, prop, value) => {
+      set: (target: Record<string, any>, prop: string, value: any) => {
         const oldTarget = { ...target };
 
         target[prop] = value;
-        this._eventBus().emit(Block.EVENTS.FLOW_CDM, oldTarget, target);
+        this._eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
 
