@@ -3,7 +3,7 @@ import signUpForm from '../../components/sign-up-form/signUpForm.hbs';
 
 export default class Header extends Block {
   constructor(props: Record<string, any>) {
-    super('h1', props);
+    super('div', props);
   }
 
   render() {
