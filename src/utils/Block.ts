@@ -65,7 +65,7 @@ export default abstract class Block {
     this._element!.innerHTML = fragment;
   }
 
-  protected render(): string {
+  render(): string {
     return '<div></div>';
   }
 
@@ -87,11 +87,24 @@ export default abstract class Block {
   }
 
   protected componentDidUpdate(oldProps: Props, newProps: Props) {
-    if (oldProps === newProps) return true;
+    return oldProps === newProps ? false : true;
   }
 
-  getContent() {
-    return this._element?.firstChild;
+  get element() {
+    return this._element;
+  }
+
+  public getContent() {
+    console.log(this._element?.firstChild);
+    return this.element;
+  }
+
+  public setProps(newProps: any) {
+    if (!newProps) {
+      return;
+    }
+
+    Object.assign(this.props, newProps);
   }
 
   private makePropsProxy(props: Record<string, any>) {

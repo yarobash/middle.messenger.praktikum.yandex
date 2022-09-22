@@ -1,5 +1,5 @@
 import Block from "../../utils/Block";
-import signInForm from "../sign-in-form/signInForm.hbs";
+import signUpForm from '../../components/sign-up-form/signUpForm.hbs';
 
 export default class Header extends Block {
   constructor(props: Record<string, any>) {
@@ -7,6 +7,6 @@ export default class Header extends Block {
   }
 
   render() {
-    return signInForm(this.props);
+    return signUpForm(this.props);
   }
 }

@@ -1,9 +1,16 @@
 import Header from "./components/dev-proc/Header";
 import { render } from "./utils/renderDOM";
-import signInContext from './shared/contexts/sign-in';
+import signUpContext from './shared/contexts/sign-up';
 
-const header = new Header({
-  ...signInContext
-});
 
-render('.content', header);
+const signUpForm = new Header(signUpContext);
+
+render('.content', signUpForm);
+
+signUpContext.login.errBoxState = 'show';
+signUpContext.login.inputState = 'invalid';
+
+setTimeout(() => {
+  signUpForm.setProps(signUpContext);
+}, 1000);
+
