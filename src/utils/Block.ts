@@ -62,12 +62,13 @@ export default abstract class Block {
 
   private _render() {
     const fragment = this.render();
-    this._element!.innerHTML = fragment;
+    const el = fragment.firstElementChild as HTMLElement;
+    this._element?.replaceWith(el);
+    this._element = el;
+    this._addEvents();
   }
 
-  render(): string {
-    return '<div></div>';
-  }
+  public abstract render(): DocumentFragment
 
   private _componentDidMount() {
     this.componentDidMount();
@@ -81,6 +82,7 @@ export default abstract class Block {
   }
 
   private _componentDidUpdate(oldProps: Props, newProps: Props) {
+    this._removeEvents();
     if (this.componentDidUpdate(oldProps, newProps)) {
       this._eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -90,12 +92,11 @@ export default abstract class Block {
     return oldProps === newProps ? false : true;
   }
 
-  get element() {
-    return this._element;
+  get element(): HTMLElement {
+    return this._element!;
   }
 
   public getContent() {
-    console.log(this._element?.firstChild);
     return this.element;
   }
 
@@ -126,5 +127,27 @@ export default abstract class Block {
         throw new Error('Access denied');
       }
     });
+  }
+
+  private _addEvents() {
+    const {events = {}} = this.props;
+    Object.keys(events).forEach(event => {
+      const targetElements = Array.from(this._element!.getElementsByClassName(events[event].className));
+      targetElements.forEach(target => target.addEventListener(event, events[event].handler));
+    });
+  }
+
+  private _removeEvents() {
+    const {events = {}} = this.props;
+    Object.keys(events).forEach(event => {
+      const targetElements = Array.from(this._element!.getElementsByClassName(events[event].className));
+      targetElements.forEach(target => target.removeEventListener(event, events[event].handler));
+    });
+  }
+
+  protected handleTemplate(template: (props: Props) => string, props: Props) {
+    const fragment = document.createElement('template') as HTMLTemplateElement;
+    fragment.innerHTML = template(props);
+    return fragment.content;
   }
 };

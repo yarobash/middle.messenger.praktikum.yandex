@@ -7,6 +7,6 @@ export default class Header extends Block {
   }
 
   render() {
-    return signUpForm(this.props);
+    return this.handleTemplate(signUpForm, this.props);
   }
 }
