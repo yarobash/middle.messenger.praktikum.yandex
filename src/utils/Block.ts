@@ -1,7 +1,7 @@
 import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 
-type Props = Record<string, any>;
+export type Props = Record<string, any>;
 
 export default abstract class Block {
 
