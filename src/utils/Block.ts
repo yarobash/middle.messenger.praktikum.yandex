@@ -2,15 +2,10 @@ import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 
 export type Props = Record<string, any>;
+type Children = Record<string, Block>;
 
 export default abstract class Block {
 
-  /* 
-   * Утверждение к константе (as const) объектного типа
-   * рекурсивно помечает все его поля как readonly.
-   * Кроме того, все его поля, принадлежащие к примитивным
-   * типам, расцениваются как литеральные типы.
-   */
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -18,15 +13,18 @@ export default abstract class Block {
     FLOW_RENDER: 'flow:render',
   } as const;
 
-  public id = nanoid(8);
+  private _id = nanoid(8);
   protected props: Props;
+  protected children: Children; 
   private _eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
   private _meta: { tagName: string; props: Props}
   
 
-  constructor(tagName = 'div', props = {}) {
+  constructor(tagName = 'div', propsAndChildren = {}) {
     const eventBus = new EventBus();
+
+    const { children, props } = this._getChildren(propsAndChildren);
 
     this._meta = {
       tagName,
@@ -34,6 +32,7 @@ export default abstract class Block {
     };
 
     this.props = this.makePropsProxy(props);
+    this.children = children;
 
     this._eventBus = () => eventBus;
     this._registerEvents(eventBus);
@@ -45,6 +44,21 @@ export default abstract class Block {
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+  }
+
+  private _getChildren(propsAndChildren: Props) {
+    const children: Children = {};
+    const props: Props = {};
+
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value;
+      } else {
+        props[key] = value;
+      }
+    });
+
+    return { children, props };
   }
 
   private _init() {
@@ -71,10 +85,9 @@ export default abstract class Block {
   public abstract render(): DocumentFragment
 
   private _componentDidMount() {
-    this.componentDidMount();
-  }
-
-  protected componentDidMount() {
+    Object.values(this.children).forEach((child) => {
+      child.dispatchComponentDidMount();
+    });
   }
 
   public dispatchComponentDidMount() {
@@ -146,8 +159,20 @@ export default abstract class Block {
   }
 
   protected handleTemplate(template: (props: Props) => string, props: Props) {
+    const propsAndStabs = {...props};
+
+    Object.entries(this.children).forEach(([key, child]) => {
+      propsAndStabs[key] = `<div data-id="${child._id}"></div>`
+    });
+
     const fragment = document.createElement('template') as HTMLTemplateElement;
-    fragment.innerHTML = template(props);
+    fragment.innerHTML = template(propsAndStabs);
+
+    Object.values(this.children).forEach((child) => {
+      const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
+      stub?.replaceWith(child.getContent());
+    });
+
     return fragment.content;
   }
 };

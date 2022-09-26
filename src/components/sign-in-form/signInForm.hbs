@@ -3,11 +3,11 @@
   <fieldset class="sign-in-form__inputs-fset">
     <div class="sign-in-form__inpt-box">
       <label for="login" class="sign-in-form__lbl">Логин</label>
-      <input type="text" class="sign-in-form__inpt" name="login" id="login" value="" placeholder="{{ login }}">
+      <input type="text" class="sign-in-form__inpt sign-in-form__input_{{login.inputState}}" name="login" id="login" value="" placeholder="{{ login.placeholder }}">
     </div>
     <div class="sign-in-form__inpt-box">
       <label for="phone" class="sign-in-form__lbl">Пароль</label>
-      <input type="password"  class="sign-in-form__inpt" name="phone" id="phone" value="{{ pass }}" placeholder="{{ pass }}">
+      <input type="password"  class="sign-in-form__inpt" name="phone" id="phone" value="" placeholder="{{ pass.placeholder }}">
     </div>
   </fieldset>
   <fieldset class="sign-in-form__btn-fset">
