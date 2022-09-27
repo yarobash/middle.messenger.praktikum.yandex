@@ -7,8 +7,9 @@ import signUpContext from './sign-up-context';
 let signUpData = {};
 
 const handleInputChange = (event?: Event) => {
-  const target = event?.target as HTMLInputElement;
-  signUpData = Object.assign(signUpData, {[target.name]: target.value});
+  const {name, value} = event?.target as HTMLInputElement;
+
+  signUpData = Object.assign(signUpData, {[name]: value});
   console.log(signUpData);
 }
 
