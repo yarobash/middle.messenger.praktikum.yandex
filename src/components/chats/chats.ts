@@ -9,7 +9,6 @@ class Chats extends Block {
   }
 
   render() {
-    console.log(chatsWidgets);
     return this.handleTemplate(chats, this.props);
   }
 }
