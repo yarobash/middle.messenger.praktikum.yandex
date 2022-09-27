@@ -4,6 +4,8 @@ import SignUp from './pages/sign-up/sign-up';
 import SignIn from './pages/sign-in/sign-in';
 import Chat from './pages/chat/chat';
 import UserSettings from './pages/user-settings/user-settings';
+import { ErrorPage404 } from './pages/error-page/error-page';
+import { ErrorPage500 } from './pages/error-page/error-page';
 
 switch (window.location.pathname) {
   case '/':
@@ -20,5 +22,13 @@ switch (window.location.pathname) {
     break;
   case '/user-settings':
     render('.content', UserSettings);
-    break
+    break;
+  case '/404':
+    render('.content', ErrorPage404);
+    break;
+  case '/500':
+    render('.content', ErrorPage500);
+    break;
+  default:
+    render('.content', ErrorPage404);
 }
