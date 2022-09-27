@@ -7,6 +7,8 @@ import ChatDate from '../../components/chat-date/chat-date';
 import InMessage from '../../components/in-message/in-message';
 import MsgImg from '../../components/msg-img/msg-img';
 import OutMessage from '../../components/out-message/out-message';
+import AttachBtn from '../../components/attach-btn/attach-btn';
+import TextingForm from '../../components/texting-form/texting-form';
 
 export default {
   getProfile: GetProfile,
@@ -18,4 +20,6 @@ export default {
   inMessage: InMessage,
   msgImg: MsgImg,
   outMessage: OutMessage,
+  attachBtn: AttachBtn,
+  textingForm: TextingForm,
 }
