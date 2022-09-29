@@ -3,19 +3,19 @@ import signUp from './signUp.hbs';
 import { Props } from '../../utils/Block';
 import signUpContext from './sign-up-context';
 
-//TODO: Вынести работу с signUpData в отдельный хук
 let signUpData = {};
 
 const handleInputChange = (event?: Event) => {
   const {name, value} = event?.target as HTMLInputElement;
-
-  signUpData = Object.assign(signUpData, {[name]: value});
+  Object.assign(signUpData, {[name]: value});
   console.log(signUpData);
+  const targetButton = document.querySelector('.sign-up-form__btn') as HTMLButtonElement;
+  targetButton.disabled = true;
 }
 
 const handleSubmit = (event?: Event) => {
   event?.preventDefault();
-  console.log('Submit fired!!!');
+  console.log(signUpData);
 }
 
 const signUpEvents = {
@@ -35,9 +35,19 @@ class SignUp extends Block {
   constructor(props: Props) {
     super('div', props);
   }
-
-  render() {
+  
+  public render() {
     return this.handleTemplate(signUp, this.props);
+  }
+  
+  public _enableSbmtBtn() {
+    const targetButton = this._element?.querySelector('.sign-up-form__btn') as HTMLButtonElement;
+    targetButton.disabled = false;
+  }
+
+  public _disableSbmtBtn() {
+    const targetButton = this._element?.querySelector('.sign-up-form__btn') as HTMLButtonElement;
+    targetButton.disabled = true;
   }
 }
 

@@ -114,6 +114,12 @@
       cursor: pointer;
       background: var(--in-msg-backgr);
     }
+
+    &[disabled] {
+      background: var(--chats-text);
+      opacity: .4;
+      cursor: default;
+    }
   }
 
 }

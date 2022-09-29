@@ -17,7 +17,7 @@ export default abstract class Block {
   protected props: Props;
   protected children: Children; 
   private _eventBus: () => EventBus;
-  private _element: HTMLElement | null = null;
+  protected _element: HTMLElement | null = null;
   private _meta: { tagName: string; props: Props}
   
 
@@ -142,11 +142,14 @@ export default abstract class Block {
     });
   }
 
-  private _addEvents() {
+  private _addEvents = () => {
     const {events = {}} = this.props;
     Object.keys(events).forEach(event => {
       const targetElements = Array.from(this._element!.getElementsByClassName(events[event].className));
-      targetElements.forEach(target => target.addEventListener(event, events[event].handler));
+      targetElements.forEach(target => {
+        let cbForEvt = events[event].handler;
+        target.addEventListener(event, cbForEvt);
+      })
     });
   }
 
