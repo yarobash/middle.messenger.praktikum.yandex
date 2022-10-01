@@ -2,27 +2,17 @@ import Block from '../../utils/Block';
 import signUp from './signUp.hbs';
 import { Props } from '../../utils/Block';
 import signUpContext from './sign-up-context';
-
-let signUpData = {};
-
-const handleInputChange = (event?: Event) => {
-  const {name, value} = event?.target as HTMLInputElement;
-  Object.assign(signUpData, {[name]: value});
-  console.log(signUpData);
-  const targetButton = document.querySelector('.sign-up-form__btn') as HTMLButtonElement;
-  targetButton.disabled = true;
-}
+import { validateSignUpForm } from '../../utils/FormValidators';
 
 const handleSubmit = (event?: Event) => {
   event?.preventDefault();
-  console.log(signUpData);
 }
 
 const signUpEvents = {
   events: {
     input: {
       className: 'sign-up-form__inpt',
-      handler: handleInputChange,
+      handler: validateSignUpForm,
     },
     submit: {
       className: 'sign-up-form',
@@ -34,6 +24,7 @@ const signUpEvents = {
 class SignUp extends Block {
   constructor(props: Props) {
     super('div', props);
+    this._disableSbmtBtn();
   }
   
   public render() {
