@@ -2,6 +2,8 @@ type inputEntity = {
   value: string,
   isValid: boolean,
   readonly regEx: RegExp,
+  validator: () => void,
+  readonly errorText: string,
 }
 type formState = {[key: string]: inputEntity};
 
@@ -10,41 +12,57 @@ const signUpFormState: formState = {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.email.isValid = signUpFormState.email.regEx.test(signUpFormState.email.value),
+    errorText: 'Недопустимый емейл. Проверьте правильность.',
   },
   login: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.login.isValid = signUpFormState.login.regEx.test(signUpFormState.login.value),
+    errorText: 'Только латиница и кириллица',
   },
   first_name: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.first_name.isValid = signUpFormState.first_name.regEx.test(signUpFormState.first_name.value),
+    errorText: 'Только латиница и кириллица',
   },
   second_name: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.second_name.isValid = signUpFormState.second_name.regEx.test(signUpFormState.second_name.value),
+    errorText: 'Только латиница и кириллица',
   },
   display_name: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.display_name.isValid = signUpFormState.display_name.regEx.test(signUpFormState.display_name.value),
+    errorText: 'Только латиница и кириллица',
   },
   phone: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.phone.isValid = signUpFormState.phone.regEx.test(signUpFormState.phone.value),
+    errorText: 'Неверный формат номера: +00(000)000-00-00',
   },
   password: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.password.isValid = signUpFormState.password.regEx.test(signUpFormState.password.value),
+    errorText: 'Длиннее 3 символов, одна заглавная, одна буква',
   },
   repPassword: {
     value: '',
     isValid: false,
     regEx: /^[a-zA-Z]+$/,
+    validator: () => signUpFormState.repPassword.isValid = (signUpFormState.password.value === signUpFormState.repPassword.value),
+    errorText: 'Пароли не совпадают',
   }
 }
 
@@ -60,7 +78,9 @@ export function validateSignUpForm(event: Event) {
   const { name, value } = target;
   signUpFormState[name].value = value;
   target.value = signUpFormState[name].value;
-  signUpFormState[name].isValid = signUpFormState[name].regEx.test(signUpFormState[name].value);
+  signUpFormState[name].validator();
+  console.log(signUpFormState);
+
   if (target.classList.contains('sign-up-form__inpt_initial')) {
     target.classList.replace(
       'sign-up-form__inpt_initial',
@@ -79,7 +99,7 @@ export function validateSignUpForm(event: Event) {
 
   if (!signUpFormState[name].isValid) {
     target.nextElementSibling?.classList.remove('sign-up-form__error_hide');
-    target.nextElementSibling?.textContent = 'Ошибочка вышла';
+    target.nextElementSibling?.textContent = signUpFormState[name].errorText;
   } else {
     target.nextElementSibling?.classList.add('sign-up-form__error_hide');
   }
