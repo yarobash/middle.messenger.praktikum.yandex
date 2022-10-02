@@ -2,7 +2,8 @@ import Block from '../../utils/Block';
 import signUp from './signUp.hbs';
 import { Props } from '../../utils/Block';
 import signUpContext from './sign-up-context';
-import { validateSignUpForm } from '../../utils/FormValidators';
+//import { validateSignUpForm } from '../../utils/FormValidators';
+import { signUpFormValidator } from '../../utils/FormValidator';
 
 const handleSubmit = (event?: Event) => {
   event?.preventDefault();
@@ -12,7 +13,7 @@ const signUpEvents = {
   events: {
     input: {
       className: 'sign-up-form__inpt',
-      handler: validateSignUpForm,
+      handler: signUpFormValidator.validateForm,
     },
     submit: {
       className: 'sign-up-form',
