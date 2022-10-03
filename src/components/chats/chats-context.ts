@@ -1,18 +1,7 @@
-import fotik from '../../../public/imgs/fotik.png';
-export default {
-  inTimeStamp: '12:34',
-  inMsgText: ['Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.', 'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.'],
-  timeStamp: '12:34',
-  msgText: 'Круто!',
-  img: {
-    imgSrc: fotik,
-    imgAlt: 'Изображение фотоаппарата',
-  },
-  name: 'Иван',
-  date: '27 августа',
-  imgTimeStamp: '11:57',
-  btnCaption: 'Профиль',
-  chatsWidgets: [{
+import ChatWidget from '../chat-widget/chat-widget';
+
+const chatsWidgetsData = [
+  {
     name: 'Aндрей',
     timestamp: '10:49',
     text: 'Изображение',
@@ -99,5 +88,29 @@ export default {
     timestamp: '12 Aвг 2022',
     text: 'Ниже будет перечень экранов, которые нужно будет нарисовать, а потом реализовать. Обратите внимание, что мы сразу даём имена полей форм и названия некоторых кнопок на этих страницах.',
     unreads: '1',
-  }],
+  },
+]
+
+/*
+export default {
+  chatsWidgets: chatsWidgetsData.map((widget) => new ChatWidget(widget)),
+}
+*/
+
+export default {
+  a: new ChatWidget(chatsWidgetsData[0]),
+  b: new ChatWidget(chatsWidgetsData[1]),
+  c: new ChatWidget(chatsWidgetsData[2]),
+  d: new ChatWidget(chatsWidgetsData[3]),
+  e: new ChatWidget(chatsWidgetsData[4]),
+  f: new ChatWidget(chatsWidgetsData[5]),
+  g: new ChatWidget(chatsWidgetsData[6]),
+  h: new ChatWidget(chatsWidgetsData[7]),
+  i: new ChatWidget(chatsWidgetsData[8]),
+  j: new ChatWidget(chatsWidgetsData[9]),
+  k: new ChatWidget(chatsWidgetsData[10]),
+  l: new ChatWidget(chatsWidgetsData[11]),
+  m: new ChatWidget(chatsWidgetsData[12]),
+  n: new ChatWidget(chatsWidgetsData[13]),
+  o: new ChatWidget(chatsWidgetsData[14]),
 }

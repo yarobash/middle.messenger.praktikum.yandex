@@ -43,30 +43,37 @@
     height: 28px;
     border: none;
     background: transparent;
-    border-bottom: 1px solid var(--default-blue);
     font: normal 500 13px/1 'Inter', sans-serif;
     outline: none;
 
-    &_err {
+    &_initial {
+      border-bottom: 1px solid var(--default-blue);
+    }
+
+    &_invalid {
       border-bottom: 1px solid var(--default-red);
     }
 
-    &_correct {
+    &_valid {
       border-bottom: 1px solid var(--default-green);
     }
     
     &_pass {
-      color: var(--default-red);
+      color: var(--chats-field-backgr);
     }
 
     &_rep-pass {
-      color: var(--default-red);
+      color: var(--chats-field-backgr);
     }
   }
 
   &__error {
     color: var(--default-red); 
     font: normal normal 8px/1 'Inter', sans-serif;
+  }
+
+  &__error_hide {
+    display: none;
   }
 
   &__btn-fset {
@@ -106,6 +113,12 @@
     &:hover {
       cursor: pointer;
       background: var(--in-msg-backgr);
+    }
+
+    &[disabled] {
+      background: var(--chats-text);
+      opacity: .4;
+      cursor: default;
     }
   }
 
