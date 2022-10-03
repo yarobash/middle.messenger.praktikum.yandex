@@ -7,7 +7,7 @@ type inputEntity = {
 }
 type formSchema = {[key: string]: inputEntity};
 
-class FormValidator{
+export default class FormValidator{
   private formClass: string;
   private formState: formSchema; 
 
@@ -72,65 +72,3 @@ class FormValidator{
     }
   }
 }
-
-export const signUpFormValidator = new FormValidator(
-  'sign-up-form',
-  { 
-    email: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function(): void { this.email.isValid = this.email.regEx.test(this.email.value)},
-      errorText: 'Недопустимый емейл. Проверьте правильность.',
-    },
-    login: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function() { this.login.isValid = this.login.regEx.test(this.login.value)},
-      errorText: 'Только латиница и кириллица',
-    },
-    first_name: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function() { this.first_name.isValid = this.first_name.regEx.test(this.first_name.value)},
-      errorText: 'Только латиница и кириллица',
-    },
-    second_name: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function() { this.second_name.isValid = this.second_name.regEx.test(this.second_name.value)},
-      errorText: 'Только латиница и кириллица',
-    },
-    display_name: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function() { this.display_name.isValid = this.display_name.regEx.test(this.display_name.value)},
-      errorText: 'Только латиница и кириллица',
-    },
-    phone: {
-      value: '',
-      isValid: false,
-      regEx: /^[a-zA-Z]+$/,
-      validator: function() { this.phone.isValid = this.phone.regEx.test(this.phone.value)},
-      errorText: 'Неверный формат номера: +00(000)000-00-00',
-    },
-    password: {
-      value: '',
-      isValid: false,
-      regex: /^[a-za-z]+$/,
-      validator: function(): void { this.password.isValid = this.password.regex.test(this.password.value)},
-      errorText: 'Длиннее 3 символов, одна заглавная, одна цифра',
-    },
-    repPassword: {
-      value: '',
-      isValid: false,
-      regex: /^[a-za-z]+$/,
-      validator: function(): void { this.repPassword.isValid = (this.password.value === this.repPassword.value) },
-      errorText: 'пароли не совпадают',
-    }
-  }
-);

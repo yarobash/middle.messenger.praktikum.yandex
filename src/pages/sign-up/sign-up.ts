@@ -2,8 +2,10 @@ import Block from '../../utils/Block';
 import signUp from './signUp.hbs';
 import { Props } from '../../utils/Block';
 import signUpContext from './sign-up-context';
-//import { validateSignUpForm } from '../../utils/FormValidators';
-import { signUpFormValidator } from '../../utils/FormValidator';
+import FormValidator from '../../utils/FormValidator';
+import signUpFormSchema from '../../components/sign-up-form/sign-up-form-schema';
+
+const signUpFormValidator = new FormValidator('sign-up-form', signUpFormSchema);
 
 const handleSubmit = (event?: Event) => {
   event?.preventDefault();
@@ -32,11 +34,6 @@ class SignUp extends Block {
     return this.handleTemplate(signUp, this.props);
   }
   
-  public _enableSbmtBtn() {
-    const targetButton = this._element?.querySelector('.sign-up-form__btn') as HTMLButtonElement;
-    targetButton.disabled = false;
-  }
-
   public _disableSbmtBtn() {
     const targetButton = this._element?.querySelector('.sign-up-form__btn') as HTMLButtonElement;
     targetButton.disabled = true;

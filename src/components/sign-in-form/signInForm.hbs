@@ -3,11 +3,13 @@
   <fieldset class="sign-in-form__inputs-fset">
     <div class="sign-in-form__inpt-box">
       <label for="login" class="sign-in-form__lbl">Логин</label>
-      <input type="text" class="sign-in-form__inpt sign-in-form__input_{{login.inputState}}" name="login" id="login" value="" placeholder="{{ login.placeholder }}">
+      <input type="text" class="sign-in-form__inpt sign-in-form__input_{{login.inputState}}" name="login" id="login" value="" placeholder="{{login.placeholder}}">
+      <span class="sign-in-form__error sign-in-form__error_{{login.errBoxState}} sign-in-form__error_login"></span>
     </div>
     <div class="sign-in-form__inpt-box">
-      <label for="phone" class="sign-in-form__lbl">Пароль</label>
-      <input type="password"  class="sign-in-form__inpt" name="phone" id="phone" value="" placeholder="{{ pass.placeholder }}">
+      <label for="password" class="sign-in-form__lbl">Пароль</label>
+      <input type="password"  class="sign-in-form__inpt" name="password" id="password" value="" placeholder="{{pass.placeholder}}">
+      <span class="sign-in-form__error sign-in-form__error_{{password.errBoxState}} sign-in-form__error_password"></span>
     </div>
   </fieldset>
   <fieldset class="sign-in-form__btn-fset">
