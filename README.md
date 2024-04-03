@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4061e76d-183b-473f-acfa-8a73c7c32c17/deploy-status)](https://app.netlify.com/sites/chat-laichat/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/60604f2b-d425-4b1e-b1e8-a849cdbc0666/deploy-status)](https://app.netlify.com/sites/chat-laichat/deploys)
 <br>
 # Спринт 1
 Реализация компонентов приложения "Мессенджер" с помощью шаблонизатора handlebars.
