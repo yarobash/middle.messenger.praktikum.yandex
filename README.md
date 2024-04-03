@@ -7,13 +7,13 @@
 https://www.figma.com/file/v3haT7KaSGqkewYixjvLSb/Chat_external_link?node-id=0-1&t=SmifkUxdtoNfPshG-0
 
 ## Готовая сборка на Netlify
-https://chat-laichat.netlify.app/ - Индекс
-https://chat-laichat.netlify.app/sign-in - Страница входа
-https://chat-laichat.netlify.app/sign-up - Страница регистрации
-https://chat-laichat.netlify.app/chat - Страница чатов
-https://chat-laichat.netlify.app/user-settings - Страница настроек пользователя
-https://chat-laichat.netlify.app/404 - Страница 404
-https://chat-laichat.netlify.app/500 - Страница 500
+- https://chat-laichat.netlify.app/ - Индекс
+- https://chat-laichat.netlify.app/sign-in - Страница входа
+- https://chat-laichat.netlify.app/sign-up - Страница регистрации
+- https://chat-laichat.netlify.app/chat - Страница чатов
+- https://chat-laichat.netlify.app/user-settings - Страница настроек пользователя
+- https://chat-laichat.netlify.app/404 - Страница 404
+- https://chat-laichat.netlify.app/500 - Страница 500
 
 ## Ветка деплоя
 deploy
