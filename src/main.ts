@@ -8,27 +8,31 @@ import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
 
-const pages = {
-  indexPage,
-  chat: chatPage,
-  'sign-in': signInPage,
-  'sign-up': signUpPage,
-  'user-settings': userSettingsPage,
-  '404': errorPage()[0],
-  '500': errorPage()[1],
-};
+const content = document.querySelector('.content');
+const [_404ErrPage, _500ErrPage] = errorPage();
 
-function navigate(page: string) {
-  const root = document.querySelector('.content');
-  //@ts-ignore
-  root!.innerHTML = pages[page]();
-}
+content!.innerHTML = indexPage();
 
-document.addEventListener('DOMContentLoaded', () => navigate('indexPage'));
-document.addEventListener('click', (evt) => {
-  //@ts-ignore
-  const page = evt.target.getAttribute('href');
-  if (page) navigate(page.slice(1));
-  evt.preventDefault();
-  evt.stopImmediatePropagation();
-});
+switch (window.location.pathname) {
+  case '/':
+    content!.innerHTML = indexPage();
+    break;
+  case '/sign-in':
+    content!.innerHTML = signInPage();
+    break;
+  case '/sign-up':
+    content!.innerHTML = signUpPage();
+    break;
+  case '/chat':
+    content!.innerHTML = chatPage();
+    break;
+  case '/user-settings':
+    content!.innerHTML = userSettingsPage();
+    break;
+  case '/404':
+    content!.innerHTML = _404ErrPage();
+    break;
+  case '/500':
+    content!.innerHTML = _500ErrPage();
+    break;
+} 
