@@ -1,0 +1,60 @@
+.user-settings-form {
+  width: 510px;
+
+  &__inputs-fset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @mixin flex column, , flex-start, center;
+  }
+
+  &__inpt-box {
+    width: 100%;
+    @mixin flex row, , flex-start, center;
+    border-bottom: 1px solid var(--border-lines);
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__lbl {
+    color: var(--msgs-text);
+    font: normal 500 13px/1.1 'Inter', sans-serif;
+    flex: 0 0 auto;
+  }
+
+  &__inpt {
+    height: 32px;
+    flex: 1 1 auto;
+    text-align: right;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--chats-text);
+    font: normal normal 13px/1.1 'Inter', sans-serif;
+  }
+
+  &__btn-fset {
+    margin: none;
+    padding: 60px 0 0 0;
+    border: none;
+    @mixin flex row, , center, center;
+  }
+
+  &__btn {
+    width: 280px;
+    height: 37px;
+    background: var(--default-blue);
+    border: none;
+    border-radius: 6px;
+    color: var(--msgs-text);
+    font: normal 500 13px/1 'Inter', sans-serif;
+    transition: background .2s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background: var(--in-msg-backgr);
+    }
+  }
+}

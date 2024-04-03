@@ -1,0 +1,21 @@
+.chat-settings {
+  background: var(--default-blue); 
+  padding: 10px 0;
+  position: fixed;
+  top: 160px;
+  left: 283px;
+  border-radius: 8px;
+  @mixin flex column, , space-between, ;
+
+  &__item {
+    margin: 0;
+    padding: 0 10px;
+    color: var(--default-white);
+    font: normal normal 16px/2 'Inter', sans-serif;
+
+    &:hover {
+      cursor: pointer;
+      background: var(--in-msg-backgr); 
+    }
+  }
+}

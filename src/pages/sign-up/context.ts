@@ -1,0 +1,18 @@
+export default {
+  email: 'pochta@yandex.ru',
+  login: 'invanivanov',
+  fname: 'Иван',
+  sname: 'Иванов',
+  nick: 'Иван',
+  phone: '+7 (909) 967 30 30',
+  pass: '123456',
+  repPass: '123456',
+  emailErr: 'Недопустимый email',
+  loginErr: 'Недопустимый логин',
+  fnameErr: 'Недопустимый формат имени',
+  snameErr: 'Недопустимый формат фамилии',
+  nickErr: 'Недопустимый формат имени для чата',
+  phoneErr: 'Недопустимый формат номера',
+  pasErr: 'Недопустимый формат пароля',
+  repPassErr: 'Пароли не совпадают',
+};

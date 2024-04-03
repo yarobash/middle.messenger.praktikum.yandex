@@ -1,0 +1,37 @@
+.in-message {
+  margin: 0;
+  max-width: 45%;
+  padding: 11px 11px 5px 11px;
+  box-sizing: border-box;
+  background: var(--in-msg-backgr);
+  align-self: flex-start;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  &__text-wrapper {
+    color: var(--msgs-text);
+    font: normal 500 12px/1.2 'Inter', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 14px 0;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__message-state {
+    color: var(--service-text);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0 4px;
+  }
+
+  &__timestamp {
+    font: normal 500 9px/1 'Inter', sans-serif;
+  }
+}

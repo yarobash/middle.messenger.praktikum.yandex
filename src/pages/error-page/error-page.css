@@ -1,0 +1,4 @@
+.error-page {
+  flex: 1 1 auto;
+  @mixin flex-col-center;
+}

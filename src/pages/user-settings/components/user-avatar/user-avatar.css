@@ -1,0 +1,21 @@
+.user-avatar {
+  width: 510px;
+  padding: 60px 0 97px 0;
+  @mixin flex column, , flex-start, center;
+  max-height: 287px;
+
+  &__box {
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+    background: var(--default-white);
+
+    @mixin flex-col-center;
+    transition: background .2s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background: var(--msgs-text);
+    }
+  }
+}

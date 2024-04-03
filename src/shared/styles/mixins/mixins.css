@@ -1,0 +1,14 @@
+@define-mixin flex-col-center {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@define-mixin flex $direction, $wrap: nowrap, $justify: flex-start, $align: stretch {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}

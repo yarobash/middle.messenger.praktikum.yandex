@@ -1,0 +1,15 @@
+:root {
+  --default-white: #EFEFEF;
+  --default-blue: #3369F3;
+  --default-red: #CD5555;
+  --default-green: #035e03;
+  --in-msg-backgr: #2496EDE6;
+  --out-msg-backgr: #2496EDCC;
+  --chat-widget-hover: #2496ED40;
+  --msgs-field-backgr: #031F30;
+  --chats-field-backgr: #0F1C24;
+  --border-lines: #344658;
+  --service-text: #9CD4F7;
+  --msgs-text: #E0DDDD;
+  --chats-text: #999999;
+}

@@ -1,0 +1,31 @@
+.msg-img {
+  width: 316px;
+  height: 211px;
+  position: relative;
+
+  &__timestamp-wrapper {
+    width: 37px;
+    height: 13px;
+    border: 1px solid var(--in-msg-backgr);
+    background: var(--in-msg-backgr);
+    border-radius: 13px;
+    @mixin flex-col-center;
+    position: absolute;
+    right: 11px;
+    bottom: 11px;
+  }
+
+  &__timestamp {
+    font: normal 500 9px/1 'Inter', sans-serif;
+    color: var(--msgs-text);
+    vertical-align: middle;
+  }
+}
+.msgImg {
+  width: 316px;
+  height: 211px;
+
+  &_in {
+    align-self: flex-start;
+  }
+}
