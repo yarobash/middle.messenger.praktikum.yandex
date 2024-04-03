@@ -8,7 +8,7 @@ import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
 
-const content = document.querySelector('.content');
+const content = document.querySelector('.main');
 const [_404ErrPage, _500ErrPage] = errorPage();
 
 content!.innerHTML = indexPage();

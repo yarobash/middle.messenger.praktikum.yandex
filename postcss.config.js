@@ -1,15 +1,14 @@
-import { resolve } from 'path';
-//import preset from 'postcss-preset-env';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import mixins from 'postcss-mixins';
 import nested from 'postcss-nested';
-//import vars from 'postcss-simple-vars';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default {
   plugins: [
-    //preset,
-    mixins({mixinsDir: resolve('.', 'src/shared/styles/mixins/')}),
+    mixins({mixinsDir: path.join(__dirname, 'src/shared/styles/mixins')}),
     nested(),
-    //vars,
   ],
 }
