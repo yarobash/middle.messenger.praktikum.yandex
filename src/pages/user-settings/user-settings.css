@@ -1,0 +1,17 @@
+.user-settings {
+  width: 100%;
+  flex: 1 1 1px;
+  @mixin flex row, , , ;
+
+  &__lside {
+    border-right: 1px solid var(--border-lines);
+    width: 64px;
+    background: var(--chats-field-backgr);
+    @mixin flex-col-center;
+  }
+
+  &__settings {
+    flex: 1 1 auto;
+    @mixin flex column, , flex-start, center;
+  }
+}

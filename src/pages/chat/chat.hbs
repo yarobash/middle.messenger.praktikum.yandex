@@ -1,0 +1,28 @@
+<div class="chat-interface">
+  {{> chatSettingsPart }}
+  <div class="lside">
+    {{> getProfilePart }}
+    {{> searchChatsPart }}
+    {{> chatsPart }}
+  </div>
+  <div class="messaging">
+    <div class="user-controls">
+      {{> curUserPart }}
+      {{> chatManagePart }}
+    </div>
+    <div class="messages">
+      {{> chatDatePart }}
+      {{> inMsgPart }}
+      {{> msgImgPart }}
+      {{> outMsgPart }}
+    </div>
+    <div class="messaging-controls">
+      <div class="messaging-controls__attach">
+        {{> attachBtnPart }}
+      </div>
+      <div class="messaging-controls__texting">
+        {{> textingForm }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="user-settings-form">
+  <form class="user-settings-form__form">
+    <fieldset class="user-settings-form__inputs-fset">
+      <div class="user-settings-form__inpt-box">
+        <label for="email" class="user-settings-form__lbl">Почта</label>
+        <input type="text"  class="user-settings-form__inpt"name="email" id="email" value="{{ email }}" placeholder="{{ email }}">
+      </div>
+      <div class="user-settings-form__inpt-box">
+        <label for="login" class="user-settings-form__lbl">Логин</label>
+        <input type="text" class="user-settings-form__inpt" name="login" id="login" value="{{ login }}" placeholder="login">
+      </div>
+      <div class="user-settings-form__inpt-box">
+        <label for="first_name" class="user-settings-form__lbl">Имя</label>
+        <input type="text"  class="user-settings-form__inpt"name="first_name" id="first_name" value="{{ fname }}" placeholder="Имя">
+      </div>
+      <div class="user-settings-form__inpt-box">
+        <label for="second_name" class="user-settings-form__lbl">Фамилия</label>
+        <input type="text"  class="user-settings-form__inpt"name="second_name" id="second_name" value="{{ sname }}" placeholder="Фамилия">
+      </div>
+      <div class="user-settings-form__inpt-box">
+        <label for="display_name" class="user-settings-form__lbl">Имя в чате</label>
+        <input type="text" class="user-settings-form__inpt" name="display_name" id="display_name" value="{{ nick }}" placeholder="{{ nick }}">
+      </div>
+      <div class="user-settings-form__inpt-box">
+        <label for="phone" class="user-settings-form__lbl">Телефон</label>
+        <input type="text"  class="user-settings-form__inpt" name="phone" id="phone" value="{{ phone }}" placeholder="{{ phone }}">
+      </div>
+    </fieldset>
+    <fieldset class="user-settings-form__btn-fset">
+      <button class="user-settings-form__btn" type="submit">Сохранить</button>
+    </fieldset>
+  </form>
+</div>

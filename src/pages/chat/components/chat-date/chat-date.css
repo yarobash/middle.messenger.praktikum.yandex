@@ -1,0 +1,12 @@
+.chat-date {
+  width: 100%;
+  width: fit-content;
+  align-self: center;
+  padding: 20px 0;
+
+  &__date {
+    margin: 0 auto;
+    color: var(--chats-text);
+    font: normal 500 12px/1.2 'Inter', sans-serif;
+  }
+}

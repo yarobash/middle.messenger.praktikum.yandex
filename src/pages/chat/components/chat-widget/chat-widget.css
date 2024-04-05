@@ -1,0 +1,87 @@
+.chat-widget {
+  margin: 0;
+  padding: 0 10px;
+  height: 69;
+
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(to top, var(--chat-widget-hover) 0, var(--chat-widget-hover) 99%, transparent 75%);
+  }
+
+  &__body {
+    height: 100%;
+    border-top: 1px solid var(--border-lines);
+
+    display: grid;
+    grid-template-columns: 47px 1fr 47px;
+    grid-template-rows: 24px 44px;
+    grid-template-areas: "pic name-timestamp name-timestamp"
+                         "pic text-area unreads";
+  }
+
+  &__pic-box {
+    grid-area: pic;
+    @mixin flex column, , center, ;
+  }
+
+  &__pic {
+    width: 47px;
+    height: 47px;
+    border-radius: 47px;
+    background: var(--default-white);
+  }
+
+  &__name-timestamp {
+    grid-area: name-timestamp;
+    padding: 0 0 0 10px;
+    @mixin flex row, , space-between, flex-end;
+  }
+
+  &__name {
+    font: normal 500 13px/1 'Inter', sans-serif;
+    color: var(--default-white);
+    margin: 0;
+  }
+
+  &__timestamp {
+    font: normal 500 9px/1 'Inter', sans-serif;
+    color: var(--chats-text);
+    margin: 0;
+  }
+
+  &__text-area {
+    grid-area: text-area;
+    padding: 6px 0 6px 10px;
+    @mixin flex column, , flex-start, flex-start;
+  }
+
+  &__text {
+    color: var(--chats-text);
+    max-height: 30px;
+    padding: 0;
+    margin: 0;
+    font: normal 500 12px/15px 'Inter', sans-serif;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  &__unreads {
+    grid-area: unreads;
+    @mixin flex column, , center, flex-end;
+  }
+
+  &__unreads-box {
+    width: 20px;
+    height: 20px;
+    background: var(--default-blue);
+    border-radius: 20px;
+    @mixin flex row, , center, center;
+  }
+
+  &__unreads-counter {
+    color: var(--default-white);
+    font: normal 500 11px/1 'Inter', sans-serif;
+  }
+}

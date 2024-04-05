@@ -1,0 +1,23 @@
+.chat-manage-btn {
+  width: 25px;
+  height: 25px;
+  background: var(--msgs-field-backgr);
+  border: none;
+  border-radius: 25px;
+  @mixin flex-col-center;
+  gap: 3px 0;
+
+  transition: background .2s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--out-msg-backgr);
+  }
+
+  &__inner-circle {
+    width: 3px;
+    height: 3px;
+    background: var(--default-white);
+    border-radius: 3px;
+  }
+}

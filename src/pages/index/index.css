@@ -1,0 +1,30 @@
+.index-nav {
+  width: 100%;
+  flex: 1 1 100%;
+  @mixin flex-col-center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    flex: 1 1 100%;
+    @mixin flex-col-center;
+    gap: 20px 0;
+  }
+
+  &__list-item {
+    padding: 0;
+    margin: 0;
+
+    & a {
+      text-decoration: none;
+      color: var(--msgs-text);
+      font: normal bold 36px/1.1 'Inter', sans-serif;
+    }
+  }
+}

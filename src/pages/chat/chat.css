@@ -1,0 +1,67 @@
+.chat-interface {
+  width: 100%;
+  flex: 1 1 1px;
+  @mixin flex row, , , ;
+}
+
+.lside {
+  border-right: 1px solid var(--border-lines);
+  width: clamp(250px, 25%, 320px);
+  background: var(--chats-field-backgr);
+  @mixin flex column, , , center;
+}
+
+.messaging {
+  flex: 1 1 75%;
+  padding: 0 20px;
+  @mixin flex column, , , ,;
+}
+
+.messages {
+  padding: 0 0 30px 0;
+  display: flex;
+  @mixin flex column, , flex-end, ;
+  gap: 10px 0;
+  flex: 1 1 10px;
+}
+
+.user-controls {
+  flex: 0 0 54px;
+  border-bottom: 1px solid var(--border-lines);
+  @mixin flex row, , space-between, center;
+}
+
+.messaging-controls {
+  flex: 0 0 54px;
+  border-top: 1px solid var(--border-lines);
+  @mixin flex row, , , ;
+
+  &__attach {
+    flex: 0 0 32px;
+    @mixin flex-col-center;
+  }
+
+  &__attach-btn {
+    background: none;
+    width: 32px;
+    height: 32px;
+    @mixin flex-col-center;
+    border: none;
+
+    & svg {
+      transition: transform .1s ease-in;
+    }
+
+    &:hover {
+      cursor: pointer;
+      & svg {
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  &__texting {
+    flex: 1 1 100%;
+    @mixin flex column, , center, ;
+  }
+}
