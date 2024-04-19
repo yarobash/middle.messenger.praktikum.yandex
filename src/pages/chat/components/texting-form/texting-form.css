@@ -16,34 +16,7 @@
     margin: 0;
     padding: 0;
     border: none;
+
     @mixin flex-col-center;
-  }
-
-  &__input {
-    box-sizing: border-box;
-    border: none;
-    margin: 0;
-    padding: 0 20px;
-    width: 100%;
-    height: 100%;
-    border-radius: 32px;
-    outline: none;
-    font: normal 500 12/1.2 'Inter', sans-serif;
-    background: var(--default-white);
-  }
-
-  &__btn {
-    background: var(--default-blue);
-    width: 28px;
-    height: 28px;
-    border: none;
-    border-radius: 28px;
-    transition: background .2s ease-in;
-    @mixin flex-col-center;
-
-    &:hover {
-      cursor: pointer;
-      background: var(--out-msg-backgr);
-    }
   }
 }

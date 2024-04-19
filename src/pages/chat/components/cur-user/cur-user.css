@@ -1,5 +1,6 @@
 .cur-user-wrapper {
   @mixin flex row, , flex-start, center;
+
   gap: 0 10px;
   width: fit-content;
 
@@ -11,7 +12,7 @@
   }
 
   &__name {
-    font: normal 500 13px/1.2 'Inter', sans-serif;
+    font: normal 500 13px/1.2 Inter, sans-serif;
     color: var(--default-white);
   }
 }

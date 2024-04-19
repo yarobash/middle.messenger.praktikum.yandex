@@ -1,5 +1,11 @@
+import template from './index.hbs';
+import { Block } from '../../utils';
 import './index.css';
-import index from './indexPage.hbs';
-export function indexPage(): string {
-  return index();
+
+class IndexPage extends Block {
+  public render() {
+    return this.compile(template, this.props);
+  }
 }
+
+export const indexPage = new IndexPage({});

@@ -1,27 +1,27 @@
 <div class="chat-interface">
-  {{> chatSettingsPart }}
+  {{{ chatSettings }}}
   <div class="lside">
-    {{> getProfilePart }}
-    {{> searchChatsPart }}
-    {{> chatsPart }}
+    {{{ getProfile }}}
+    {{{ searchChats }}}
+    {{{ chats }}}
   </div>
   <div class="messaging">
     <div class="user-controls">
-      {{> curUserPart }}
-      {{> chatManagePart }}
+      {{{ curUser }}}
+      {{{ chatManage }}}
     </div>
     <div class="messages">
-      {{> chatDatePart }}
-      {{> inMsgPart }}
-      {{> msgImgPart }}
-      {{> outMsgPart }}
+      {{{ chatDate }}}
+      {{{ inMsg }}}
+      {{{ msgImg }}}
+      {{{ outMsg }}}
     </div>
     <div class="messaging-controls">
       <div class="messaging-controls__attach">
-        {{> attachBtnPart }}
+        {{{ attachBtn }}}
       </div>
       <div class="messaging-controls__texting">
-        {{> textingForm }}
+        {{{ texting }}}
       </div>
     </div>
   </div>

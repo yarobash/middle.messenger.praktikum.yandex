@@ -9,19 +9,22 @@
     border: 1px solid var(--in-msg-backgr);
     background: var(--in-msg-backgr);
     border-radius: 13px;
+
     @mixin flex-col-center;
+
     position: absolute;
     right: 11px;
     bottom: 11px;
   }
 
   &__timestamp {
-    font: normal 500 9px/1 'Inter', sans-serif;
+    font: normal 500 9px/1 Inter, sans-serif;
     color: var(--msgs-text);
     vertical-align: middle;
   }
 }
-.msgImg {
+
+.msg-img-intern {
   width: 316px;
   height: 211px;
 

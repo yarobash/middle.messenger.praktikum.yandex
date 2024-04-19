@@ -1,0 +1,57 @@
+.user-input {
+  width: 100%;
+
+  @mixin flex-col-center;
+
+  position: relative;
+
+  &__wrapper {
+    width: 100%;
+    border-bottom: 1px solid var(--border-lines);
+
+    @mixin flex row, , , center;
+  }
+
+  &__lbl {
+    color: var(--msgs-text);
+    font: normal 500 13px/1.1 Inter, sans-serif;
+    flex: 0 0 auto;
+  }
+
+  &__inpt {
+    height: 32px;
+    flex: 1 1 auto;
+    text-align: right;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--chats-text);
+    font: normal normal 13px/1.1 Inter, sans-serif;
+  }
+
+  &__state {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 11px;
+    right: -20px;
+    display: none;
+
+    &_error {
+      background: var(--default-red);
+      display: block;
+    }
+
+    &_correct {
+      background: var(--default-green);
+      display: block;
+    }
+  }
+
+  &__error-wrapper {
+    margin: 3px 0 0;
+    width: 100%;
+    height: 10px;
+  }
+}

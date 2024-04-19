@@ -3,21 +3,21 @@
 
   &__header {
     color: var(--chats-text);
-    font: normal 500 40px/1 'Inter', sans-serif;
+    font: normal 500 40px/1 Inter, sans-serif;
     margin: 0;
     padding: 0;
   }
 
   &__msg {
     color: var(--chats-text);
-    font: normal 500 20px/1 'Inter', sans-serif;
-    margin: 20px 0 69px 0;
+    font: normal 500 20px/1 Inter, sans-serif;
+    margin: 20px 0 69px;
     padding: 0;
   }
 
   &__link {
     color: var(--default-white);
-    font: normal 500 11px/1 'Inter', sans-serif;
+    font: normal 500 11px/1 Inter, sans-serif;
     text-decoration: none;
   }
 }

@@ -1,0 +1,25 @@
+.send-btn {
+  background: var(--default-blue);
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 28px;
+  transition: background .2s ease-in;
+
+  @mixin flex-col-center;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--out-msg-backgr);
+  }
+
+  &_disabled {
+    background: var(--chats-text);
+    opacity: .2;
+
+    &:hover {
+      cursor: default;
+      background: var(--chats-text);
+    }
+  }
+}

@@ -1,38 +1,43 @@
-import { indexPage } from './pages/index';
-import { chatPage } from './pages/chat';
-import { signInPage } from './pages/sign-in';
-import { signUpPage } from './pages/sign-up';
-import { userSettingsPage } from './pages/user-settings';
-import { errorPage } from './pages/error-page';
+import { renderDOM } from './utils/render-dom';
+import { 
+  chatPage,
+  indexPage,
+  _404Page,
+  _500Page,
+  userSettingsPage,
+  signUpPage,
+  signInPage,
+} from './pages';
+
 import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
 
-const content = document.querySelector('.main');
-const [_404ErrPage, _500ErrPage] = errorPage();
-
-content!.innerHTML = indexPage();
+renderDOM('.main', indexPage);
 
 switch (window.location.pathname) {
   case '/':
-    content!.innerHTML = indexPage();
-    break;
-  case '/sign-in':
-    content!.innerHTML = signInPage();
-    break;
-  case '/sign-up':
-    content!.innerHTML = signUpPage();
+    renderDOM('.main', indexPage);
     break;
   case '/chat':
-    content!.innerHTML = chatPage();
+    renderDOM('.main', chatPage);
     break;
   case '/user-settings':
-    content!.innerHTML = userSettingsPage();
+    renderDOM('.main', userSettingsPage);
+    break;
+  case '/sign-up':
+    renderDOM('.main', signUpPage);
+    break;
+  case '/sign-in':
+    renderDOM('.main', signInPage);
     break;
   case '/404':
-    content!.innerHTML = _404ErrPage();
+    renderDOM('.main', _404Page);
     break;
   case '/500':
-    content!.innerHTML = _500ErrPage();
+    renderDOM('.main', _500Page);
     break;
-} 
+  default:
+    renderDOM('.main', _404Page);
+    break;
+}

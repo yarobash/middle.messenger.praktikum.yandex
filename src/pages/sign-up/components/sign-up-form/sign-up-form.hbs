@@ -1,49 +1,17 @@
 <form class="sign-up-form">
   <p class="sign-up-form__title">Регистрация</p>
   <fieldset class="sign-up-form__inputs-fset">
-    <div class="sign-up-form__inpt-box">
-      <label for="email" class="sign-up-form__lbl">Почта</label>
-      <input type="text"  class="sign-up-form__inpt"name="email" id="email" value="" placeholder="{{ email }}">
-      <span class="sign-up-form__error sign-up-form__error_email">{{ emailErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="login" class="sign-up-form__lbl">Логин</label>
-      <input type="text" class="sign-up-form__inpt sign-up-form__inpt_err" name="login" id="login" value="" placeholder="login">
-      <span class="sign-up-form__error sign-up-form__error_login">{{ loginErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="first_name" class="sign-up-form__lbl">Имя</label>
-      <input type="text"  class="sign-up-form__inpt sign-up-form__inpt_correct" name="first_name" id="first_name" value="" placeholder="Имя">
-      <span class="sign-up-form__error sign-up-form__error_fname">{{ fnameErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="second_name" class="sign-up-form__lbl">Фамилия</label>
-      <input type="text"  class="sign-up-form__inpt"name="second_name" id="second_name" value="" placeholder="Фамилия">
-      <span class="sign-up-form__error sign-up-form__error_sname">{{ snameErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="display_name" class="sign-up-form__lbl">Имя в чате</label>
-      <input type="text" class="sign-up-form__inpt" name="display_name" id="display_name" value="" placeholder="{{ nick }}">
-      <span class="sign-up-form__error sign-up-form__error_nick">{{ nickErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="phone" class="sign-up-form__lbl">Телефон</label>
-      <input type="text"  class="sign-up-form__inpt" name="phone" id="phone" value="" placeholder="{{ phone }}">
-      <span class="sign-up-form__error sign-up-form__error_phone">{{ phoneErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="phone" class="sign-up-form__lbl">Пароль</label>
-      <input type="password"  class="sign-up-form__inpt sign-up-form__inpt_pass" name="phone" id="phone" value="{{ pass }}" placeholder="{{ pass }}">
-      <span class="sign-up-form__error sign-up-form__error_pass">{{ passErr }}</span>
-    </div>
-    <div class="sign-up-form__inpt-box">
-      <label for="phone" class="sign-up-form__lbl">Пароль (ещё раз)</label>
-      <input type="password"  class="sign-up-form__inpt sign-up-form__inpt_rep-pass" name="phone" id="phone" value="{{ repPass }}" placeholder="{{ repPass }}">
-      <span class="sign-up-form__error sign-up-form__error_rep-pass">{{ repPassErr }}</span>
-    </div>
+    {{{ emailSignInput }}}
+    {{{ loginSignInput }}}
+    {{{ fnameSignInput }}}
+    {{{ snameSignInput }}}
+    {{{ dispnameSignInput }}}
+    {{{ phoneSignInput }}}
+    {{{ passwordSignInput }}}
+    {{{ reppasswordSignInput }}}
   </fieldset>
   <fieldset class="sign-up-form__btn-fset">
-    <button class="sign-up-form__btn" type="submit">Зарегистрироваться</button>
+    {{{ button }}}
     <a href="/sign-in" class="sign-up-form__enter-link">Войти</p>
   </fieldset>
 </form>

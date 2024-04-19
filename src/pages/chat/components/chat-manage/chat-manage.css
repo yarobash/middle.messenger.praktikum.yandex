@@ -4,9 +4,10 @@
   background: var(--msgs-field-backgr);
   border: none;
   border-radius: 25px;
-  @mixin flex-col-center;
-  gap: 3px 0;
 
+  @mixin flex-col-center;
+
+  gap: 3px 0;
   transition: background .2s ease-in;
 
   &:hover {

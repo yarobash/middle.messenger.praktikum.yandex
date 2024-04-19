@@ -1,7 +1,9 @@
 .user-avatar {
   width: 510px;
-  padding: 60px 0 97px 0;
+  padding: 60px 0 97px;
+
   @mixin flex column, , flex-start, center;
+
   max-height: 287px;
 
   &__box {
@@ -11,6 +13,7 @@
     background: var(--default-white);
 
     @mixin flex-col-center;
+
     transition: background .2s ease-in;
 
     &:hover {

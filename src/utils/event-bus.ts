@@ -1,39 +1,31 @@
-type EvtHandler = () => void;
-type Listeners = Record<string, Array<EvtHandler>>;
+export type Listener<T extends unknown[] = any[]> = (...args: T) => void;
 
-interface IEventBus {
-  on(evt: string, cb: EvtHandler): void
-  off(evt: string, cb: EvtHandler): void
-  emit(evt: string, ...args: Parameters<EvtHandler>): void
-}
+export default class EventBus<E extends string = string, M extends { [K in E]: unknown[] } = Record<E, any[]>> {
+  private readonly listeners: { [key in E]?: Listener<M[E]>[] } = {};
 
-export class EventBus {
-  private readonly listeners: Listeners = {};
-
-  constructor() {
-    this.listeners = {};
+  on(event: E, callback: Listener<M[E]>) {
+    if (!this.listeners[event]) {
+      this.listeners[event] = [];
+    }
+    this.listeners[event]!.push(callback);
   }
 
-  on: IEventBus['on'] = (evt, cb) => {
-    if (!this.listeners[evt]) {
-      this.listeners[evt] = [];
+  off(event: E, callback: Listener<M[E]>) {
+    if (!this.listeners[event]) {
+      throw new Error(`Событие ${event} не найдено`);
     }
-    this.listeners[evt].push(cb);
-  };
 
-  off: IEventBus['off'] = (evt, cb) => {
-    if (!this.listeners[evt]) {
-      throw new Error(`Нет события: ${evt}`);
-    }
-    this.listeners[evt] = this.listeners[evt].filter(
-      (listener) => listener !== cb
+    this.listeners[event] = this.listeners[event]!.filter(
+      listener => listener !== callback,
     );
-  };
+  }
 
-  emit: IEventBus['emit'] = (evt, ...args) => {
-    if (!this.listeners[evt]) {
-      throw new Error(`Нет события: ${evt}`);
+  emit(event: E, ...args: M[E]) {
+    if (!this.listeners[event]) {
+      throw new Error(`Событие ${event} не найдено`);
     }
-    this.listeners[evt].forEach(listener => listener(...args));
-  };
+    this.listeners[event]!.forEach(function (listener) {
+      listener(...args);
+    });
+  }
 }
