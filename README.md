@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/60604f2b-d425-4b1e-b1e8-a849cdbc0666/deploy-status)](https://app.netlify.com/sites/chat-laichat/deploys)
 <br>
-# Спринт 1
-Реализация компонентов приложения "Мессенджер" с помощью шаблонизатора handlebars.
+# Спринт 2
+Создание базового класса Block и реализация компонентов на его основе.
 
 ## Макет
 https://www.figma.com/file/v3haT7KaSGqkewYixjvLSb/Chat_external_link?node-id=0-1&t=SmifkUxdtoNfPshG-0
