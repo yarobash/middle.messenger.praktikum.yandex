@@ -1,17 +1,17 @@
 import { renderDOM } from './utils/render-dom';
+import './index.css';
+import './shared/styles/fonts.css';
+import './shared/styles/global.css';
+
 import { 
-  chatPage,
   indexPage,
   _404Page,
   _500Page,
+  chatPage,
   userSettingsPage,
   signUpPage,
   signInPage,
 } from './pages';
-
-import './index.css';
-import './shared/styles/fonts.css';
-import './shared/styles/global.css';
 
 renderDOM('.main', indexPage);
 

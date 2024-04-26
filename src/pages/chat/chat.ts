@@ -69,7 +69,8 @@ const msgImg = new MsgImg({
   imgTimeStamp: '12:34',
 });
 const outMsg = new OutMessage({
-  msgText: 'Круто!',
+  //msgText: 'Круто!',
+  msgText: '<b><i>Крутотень!</i></b>',
   timeStamp: '12:35',
 });
 const attachBtn = new AttachBtn({});

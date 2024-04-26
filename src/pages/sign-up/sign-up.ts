@@ -26,6 +26,7 @@ function validateInput(evt: Event) {
 const emailInputError = new InputError({
   errText: '',
 });
+
 const emailSignInput = new SignInput({
   label: 'Почта',
   name: 'email',
@@ -40,6 +41,7 @@ const emailSignInput = new SignInput({
     focusout: validateInput,
   }
 });
+
 function getEmailInputBlock() {
   return emailSignInput;
 }
