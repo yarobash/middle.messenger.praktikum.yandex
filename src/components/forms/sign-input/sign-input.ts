@@ -7,30 +7,58 @@ interface SignInputProps {
   type?: string;
   name?: string;
   placeholder?: string;
-  error?: Block;
   events?: Record<string, (evt: Event) => void>;
+  constraints: Record<string, Record<string, any>>,
 }
 
 export class SignInput extends Block<SignInputProps> {
   constructor(props: SignInputProps) {
     super(props);
+    props = {...props, events: { validateInput: this.validate.bind(this) }};
+    this.setProps(props);
   }
 
   public render() {
     return this.compile(template, this.props);
   }
 
-  public setError(errText: string) {
+  private setError(errText: string) {
     const input = this.element.querySelector('input');
+    const errorBox = this.element.querySelector('.sign-input-error');
     input!.classList.remove('sign-input__input_default', 'sign-input__input_correct');
     input!.classList.add('sign-input__input_err');
-    this.children.error.showError(errText);
+    if (errorBox) errorBox.textContent = errText;
   }
 
-  public setCorrect() {
+  private setCorrect() {
     const input = this.element.querySelector('input');
+    const errorBox = this.element.querySelector('.sign-input-error');
     input!.classList.remove('sign-input__input_default', 'sign-input__input_err');
     input!.classList.add('sign-input__input_correct');
-    this.children.error.hideError();
+    if (errorBox) errorBox.textContent = '';
+  }
+
+  public validate() {
+    const input = this.element.querySelector('input');
+    if (!input) throw new Error('Не найден запрошенный элемент');
+    if (input.getAttribute('name') === 'password') this.props.constraints['rep_password'].password = input.value;
+    const name = input?.getAttribute('name');
+    if (this.props.constraints[name].validate(input.value)) {
+      this.setCorrect();
+      return true;
+    } else {
+      this.setError(this.props.constraints[name].errText);
+      return false;
+    }
+  }
+
+  public get isValid() {
+    return this.validate();
+  }
+
+  public getValue() {
+    const input = this.element.querySelector('input');
+    if (!input) throw new Error('Не найден запрошенный элемент');
+    return {[input.getAttribute('name') as string]: input.value}; 
   }
 }

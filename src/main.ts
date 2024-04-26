@@ -7,14 +7,29 @@ import {
   indexPage,
   _404Page,
   _500Page,
-  chatPage,
-  userSettingsPage,
   signUpPage,
-  signInPage,
 } from './pages';
 
 renderDOM('.main', indexPage);
 
+switch (window.location.pathname) {
+  case '/':
+    renderDOM('.main', indexPage);
+    break;
+  case '/sign-up':
+    renderDOM('.main', signUpPage);
+    break;
+  case '/404':
+    renderDOM('.main', _404Page);
+    break;
+  case '/500':
+    renderDOM('.main', _500Page);
+    break;
+  default:
+    renderDOM('.main', _404Page);
+    break;
+}
+/*
 switch (window.location.pathname) {
   case '/':
     renderDOM('.main', indexPage);
@@ -41,3 +56,4 @@ switch (window.location.pathname) {
     renderDOM('.main', _404Page);
     break;
 }
+*/

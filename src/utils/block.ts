@@ -49,10 +49,9 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
       }
       if (value instanceof Block) {
         acc.children[key] = value;
-      } else {
-        if (typeof value === 'string' || typeof value === 'number') {
-          acc.props[key] = value;
-        }
+      }
+      if (typeof value === 'string' || typeof value === 'number' || typeof value === 'object') {
+        acc.props[key] = value;
       }
       return acc;
     }, accumulator);
@@ -171,7 +170,7 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
     });
   }
 
-  private get element() {
+  public get element() {
     return this._element;
   }
 

@@ -1,7 +1,0 @@
-.sign-input-error {
-  color: var(--default-red); 
-  font: normal normal 8px/1 Inter, sans-serif;
-  display: inline-block;
-  width: 100%;
-  height: 20px;
-}
