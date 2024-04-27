@@ -11,10 +11,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "strictNullChecks": true
   },
   "include": ["src"]
 }
