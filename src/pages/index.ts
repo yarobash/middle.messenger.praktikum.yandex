@@ -1,4 +1,4 @@
-//export * from './chat';
+export * from './chat';
 export * from './error-page';
 export * from './index/index';
 export * from './user-settings';

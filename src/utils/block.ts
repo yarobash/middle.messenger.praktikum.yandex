@@ -44,7 +44,7 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
   private separatePropsAndChildren(propsWithChildren: P): { props: Record<string, string | number>, children: Record<string, Block | Block[]> } {
     const accumulator: { props: Record<string, string | number>, children: Record<string, Block | Block[]> } = { props: {}, children: {} };
     return Object.entries(propsWithChildren).reduce((acc, [key, value]) => {
-      if (Array.isArray(value)) {
+      if (Array.isArray(value) && value.some((block) => block instanceof Block)) {
         acc.children[key] = value.filter((block) => block instanceof Block);
       }
       if (value instanceof Block) {

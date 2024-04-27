@@ -7,3 +7,5 @@ export class ChatSettings extends Block {
     return this.compile(template, this.props);
   }
 }
+
+export const chatSettings = new ChatSettings({});

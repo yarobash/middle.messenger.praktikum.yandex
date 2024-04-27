@@ -16,14 +16,14 @@ export class ButtonSend extends Block<ButtonSendProps> {
   }
 
   public setError() {
-    const elem = this.element as HTMLButtonElement;
-    elem.classList.add('send-btn_disabled');
-    elem.disabled = true;
+    const btn = this.element as HTMLButtonElement;
+    btn.classList.add('send-btn_disabled');
+    btn.disabled = true;
   }
 
   public setCorrect() {
-    const elem = this.element as HTMLButtonElement;
-    elem.classList.remove('send-btn_disabled');
-    elem.disabled = false;
+    const btn = this.element as HTMLButtonElement;
+    btn.classList.remove('send-btn_disabled');
+    btn.disabled = false;
   }
 }

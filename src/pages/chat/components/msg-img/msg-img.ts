@@ -1,4 +1,5 @@
 import { Block } from '../../../../utils';
+import fotik from '../../../../static/imgs/fotik.png';
 import template from './msg-img.hbs';
 import './msg-img.css';
 
@@ -17,3 +18,9 @@ export class MsgImg extends Block<MsgImgProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const msgImg = new MsgImg({
+  imgSrc: fotik,
+  imgAlt: 'Изображение фотоаппарата',
+  imgTimeStamp: '12:34',
+});

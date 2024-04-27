@@ -6,3 +6,5 @@ export class AttachBtn extends Block{
     return this.compile(template, this.props);
   }
 }
+
+export const attachBtn = new AttachBtn({});

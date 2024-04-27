@@ -15,3 +15,5 @@ export class CurUser extends Block<CurUserProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const curUser = new CurUser({ name: 'Иван' });

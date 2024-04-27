@@ -15,3 +15,5 @@ export class ChatDate extends Block<ChatDateProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const chatDate = new ChatDate({date: '1 мая'});

@@ -6,7 +6,7 @@ interface ChatWidgetProps {
   name: string;
   timestamp: string;
   text: string;
-  unreads?: string;
+  unreads: string;
 }
 
 export class ChatWidget extends Block<ChatWidgetProps> {

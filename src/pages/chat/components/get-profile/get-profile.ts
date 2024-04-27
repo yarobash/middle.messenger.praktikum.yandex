@@ -15,3 +15,7 @@ export class GetProfile extends Block<GetProfileProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const getProfile = new GetProfile({
+  btnCaption: 'Профиль', 
+});

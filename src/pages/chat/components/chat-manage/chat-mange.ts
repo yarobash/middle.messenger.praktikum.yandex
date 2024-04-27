@@ -7,3 +7,5 @@ export class ChatManage extends Block {
     return this.compile(template, this.props);
   }
 }
+
+export const chatManage = new ChatManage({});

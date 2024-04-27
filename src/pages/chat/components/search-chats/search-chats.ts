@@ -7,3 +7,5 @@ export class SearchChats extends Block {
     return this.compile(template, this.props);
   }
 }
+
+export const searchChats = new SearchChats({}); 

@@ -10,9 +10,10 @@ import {
   signUpPage,
   signInPage,
   userSettingsPage,
+  chatPage,
 } from './pages';
 
-type Pages = '/' | '/sign-up' | '/sign-in' | '/404' | '/505' | '/user-settings';
+type Pages = '/' | '/sign-up' | '/sign-in' | '/404' | '/505' | '/user-settings' | '/chat';
 
 function renderPage(p: Pages): void {
   const renderers: Record<Pages, () => void> = {
@@ -22,6 +23,7 @@ function renderPage(p: Pages): void {
     '/user-settings': () => renderDOM('.main', userSettingsPage),
     '/404': () => renderDOM('.main', _404Page),
     '/505': () => renderDOM('.main', _500Page),
+    '/chat': () => renderDOM('.main', chatPage),
   };
   renderers[p]();
 }

@@ -16,3 +16,8 @@ export class OutMessage extends Block<OutMessageProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const outMsg = new OutMessage({
+  msgText: 'Круто!',
+  timeStamp: '12:35',
+});
