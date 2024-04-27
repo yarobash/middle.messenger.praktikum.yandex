@@ -1,5 +1,5 @@
-export default class EventBus<E extends Record<string, string>> {
-  private readonly listeners: { [key in E]?: Function[]} = {};
+export default class EventBus<E extends string> {
+  private readonly listeners: {[key in E]?: Function[]} = {};
 
   on<F extends (...args: any) => void>(event: E, callback: F) {
     if (!this.listeners[event]) {

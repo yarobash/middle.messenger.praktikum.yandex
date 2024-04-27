@@ -49,14 +49,12 @@ const phoneSignInput = new SignInput({
 
 const passwordSignInput = new SignInput({
   label: 'Пароль',
-  type: 'password',
   name: 'password',
   constraints,
 });
 
 const reppasswordSignInput = new SignInput({
   label: 'Пароль (ещё раз)',
-  type: 'password',
   name: 'rep_password',
   constraints,
 });
@@ -65,6 +63,14 @@ const button = new FormButton({
   label: 'Зарегистрироваться',
   className: 'form-button',
 });
+
+interface SignUpFormProps {
+  inputs: Block[],
+  button: Block,
+  events: {
+    handleSubmit: (evt: SubmitEvent) => void,
+  },
+}
 
 export class SignUpForm extends Block<SignUpFormProps> {
   constructor(props: SignUpFormProps) {

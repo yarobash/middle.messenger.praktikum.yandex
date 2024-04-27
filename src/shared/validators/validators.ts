@@ -67,7 +67,15 @@ export const constraints = {
     state: 'default',
     password: '',
     validate: function(value: string) {
-      return this.password === value;
+      if (!value) {
+        this.errText = 'Нужно ввести пароль ещё раз';
+        return false;
+      }
+      if (this.password !== value) {
+        this.errText = 'Пароли не совпадают';
+        return false;
+      }
+      return true;
     }, 
     errText: 'Пароли не совпадают',
   },

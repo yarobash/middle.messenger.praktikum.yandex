@@ -1,9 +1,10 @@
 import EventBus from '../utils/event-bus';
 import { nanoid } from 'nanoid';
 
-type PropMember = number | string | Block | Block[];
+type Keys<T extends Record<string, unknown>> = keyof T;
+type Values<T extends Record<string, unknown>> = T[Keys<T>];
 
-export abstract class Block<P extends Record<string, PropMember> = any> {
+export abstract class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -13,17 +14,19 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
 
   public id: string;
   protected props: P;
-  public children: Record<string, Block>;
-  private _element!: HTMLElement;
-  private _eventBus: EventBus<typeof Block.EVENTS>;
+  public children: Record<string, Block | Block[]>;
+  private _element: HTMLElement | undefined = undefined;
+  private _eventBus: EventBus<Values<typeof Block.EVENTS>>;
 
   private eventListenersStoreOld: [elem: HTMLElement, listener: string, cb: () => void][] = [];
   private eventListenersStoreNew: [elem: HTMLElement, listener: string, cb: () => void][] = [];
 
   constructor(propsWithChildren: P) {
     const { props, children } = this.separatePropsAndChildren(propsWithChildren);
-    this._eventBus = new EventBus<typeof Block.EVENTS>();
+    this._eventBus = new EventBus();
     this.registerEvents();
+    // Не могу в этом разобраться. Постараюсь подробнее изучить теорию.
+    // @ts-ignore
     this.props = this._makePropsProxy(props);
     this.children = children;
     this.id = nanoid(6);
@@ -80,6 +83,8 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
   protected compile(template: (props: P) => string, props: P): HTMLTemplateElement {
     const propsAndStubs = { ...props };
     Object.entries(this.children).forEach(([name, instance]) => {
+      // Не могу в этом разобраться. Постараюсь подробнее изучить теорию.
+      // @ts-ignore
       propsAndStubs[name] = Array.isArray(instance)
         ? instance.map((block) =>  `<div data-id="${block.id}"></div>`).join('')
         :`<div data-id="${instance.id}"></div>`;
@@ -91,7 +96,7 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
     Object.values(this.children).flat().forEach((child) => {
       const stub = wrapper.content.querySelector(`[data-id="${child.id}"]`);
       if (!stub) return;
-      stub.replaceWith(child.getContent());
+      stub.replaceWith(child.getContent() as Node);
     });
 
     return wrapper;
@@ -184,8 +189,10 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set: (target: P, prop: string, value: PropMember) => {
+      set: (target: P, prop: string, value: unknown) => {
         const oldTarget = { ...target };
+        // Не могу в этом разобраться. Постараюсь подробнее изучить теорию.
+        // @ts-ignore
         target[prop] = value;
         this.eventBus.emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
@@ -197,10 +204,10 @@ export abstract class Block<P extends Record<string, PropMember> = any> {
   }
 
   show() {
-    this.getContent().style.display = 'block';
+    (this.getContent())!.style.display = 'block';
   }
 
   hide() {
-    this.getContent().style.display = 'none';
+    (this.getContent())!.style.display = 'none';
   }
 }

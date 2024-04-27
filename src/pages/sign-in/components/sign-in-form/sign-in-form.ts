@@ -22,7 +22,6 @@ const loginSignInput = new SignInput({
 
 const passwordSignInput = new SignInput({
   label: 'Пароль',
-  type: 'password',
   name: 'password',
   constraints,
 });

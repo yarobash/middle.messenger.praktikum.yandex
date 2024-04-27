@@ -16,6 +16,22 @@ import './chat.css';
 
 const msgs = [inMsg, msgImg, outMsg];
 
+interface ChatProps {
+  chatSettings: Block,
+  getProfile: Block,
+  searchChats: Block,
+  chats: Block,
+  curUser: Block,
+  chatManage: Block,
+  chatDate: Block,
+  inMsg: Block,
+  msgImg: Block,
+  outMsg: Block,
+  attachBtn: Block,
+  texting: Block,
+  msgs: Block[],
+}
+
 class Chat extends Block<ChatProps> {
   constructor(props: ChatProps) {
     super(props);
