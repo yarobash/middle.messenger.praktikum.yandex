@@ -86,7 +86,7 @@ function handleSubmit(evt: SubmitEvent) {
       acc[name] = value;
       return acc;
     }, {});
-    // ts-ignore
+    // eslint-disable-next-line
     console.log(ret);
   }
 }

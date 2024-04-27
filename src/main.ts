@@ -8,6 +8,7 @@ import {
   _404Page,
   _500Page,
   signUpPage,
+  signInPage,
 } from './pages';
 
 renderDOM('.main', indexPage);
@@ -18,6 +19,9 @@ switch (window.location.pathname) {
     break;
   case '/sign-up':
     renderDOM('.main', signUpPage);
+    break;
+  case '/sign-in':
+    renderDOM('.main', signInPage);
     break;
   case '/404':
     renderDOM('.main', _404Page);

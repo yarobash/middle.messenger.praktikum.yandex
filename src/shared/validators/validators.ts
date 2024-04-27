@@ -82,3 +82,28 @@ export const constraints = {
   },
 };
 
+export const signInConstraints = {
+  login: { 
+    validate: function(value: string) {
+      const regex = /^.+$/;
+      return regex.test(value);
+    }, 
+    errText: 'Не указан логин!',
+  },
+  password: {
+    validate: function(value: string) {
+      const regex = /^.+$/;
+      return regex.test(value);
+    }, 
+    errText: 'Не указан пароль!',
+  },
+  'rep_password': {
+    required: true,
+    state: 'default',
+    password: '',
+    validate: function(value: string) {
+      return this.password === value;
+    }, 
+    errText: 'Пароли не совпадают',
+  },
+};
