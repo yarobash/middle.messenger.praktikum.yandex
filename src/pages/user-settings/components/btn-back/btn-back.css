@@ -5,6 +5,7 @@
   border: none;
   border-radius: 28px;
   transition: background .2s ease-in;
+
   @mixin flex-col-center;
 
   &:hover {

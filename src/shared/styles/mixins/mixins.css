@@ -7,8 +7,7 @@
 
 @define-mixin flex $direction, $wrap: nowrap, $justify: flex-start, $align: stretch {
   display: flex;
-  flex-direction: $direction;
-  flex-wrap: $wrap;
+  flex-flow: $direction $wrap;
   justify-content: $justify;
   align-items: $align;
 }
