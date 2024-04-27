@@ -9,55 +9,21 @@ import {
   _500Page,
   signUpPage,
   signInPage,
+  userSettingsPage,
 } from './pages';
 
-renderDOM('.main', indexPage);
+type Pages = '/' | '/sign-up' | '/sign-in' | '/404' | '/505' | '/user-settings';
 
-switch (window.location.pathname) {
-  case '/':
-    renderDOM('.main', indexPage);
-    break;
-  case '/sign-up':
-    renderDOM('.main', signUpPage);
-    break;
-  case '/sign-in':
-    renderDOM('.main', signInPage);
-    break;
-  case '/404':
-    renderDOM('.main', _404Page);
-    break;
-  case '/500':
-    renderDOM('.main', _500Page);
-    break;
-  default:
-    renderDOM('.main', _404Page);
-    break;
+function renderPage(p: Pages): void {
+  const renderers: Record<Pages, () => void> = {
+    '/': () => renderDOM('.main', indexPage),
+    '/sign-up': () => renderDOM('.main', signUpPage),
+    '/sign-in': () => renderDOM('.main', signInPage),
+    '/user-settings': () => renderDOM('.main', userSettingsPage),
+    '/404': () => renderDOM('.main', _404Page),
+    '/505': () => renderDOM('.main', _500Page),
+  };
+  renderers[p]();
 }
-/*
-switch (window.location.pathname) {
-  case '/':
-    renderDOM('.main', indexPage);
-    break;
-  case '/chat':
-    renderDOM('.main', chatPage);
-    break;
-  case '/user-settings':
-    renderDOM('.main', userSettingsPage);
-    break;
-  case '/sign-up':
-    renderDOM('.main', signUpPage);
-    break;
-  case '/sign-in':
-    renderDOM('.main', signInPage);
-    break;
-  case '/404':
-    renderDOM('.main', _404Page);
-    break;
-  case '/500':
-    renderDOM('.main', _500Page);
-    break;
-  default:
-    renderDOM('.main', _404Page);
-    break;
-}
-*/
+
+renderPage(window.location.pathname as Pages);

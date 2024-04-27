@@ -80,6 +80,7 @@ const inputs = [emailSignInput, loginSignInput, fnameSignInput, snameSignInput, 
 
 function handleSubmit(evt: SubmitEvent) {
   evt.preventDefault();
+  for (const input of inputs) input.validate();
   if (inputs.every((input) => input.isValid)) {
     const ret = inputs.reduce((acc: Record<string, string>, input) => {
       const [name, value] = Object.entries(input.getValue())[0];
