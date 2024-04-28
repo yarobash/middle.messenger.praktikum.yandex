@@ -12,9 +12,11 @@
       <p class="chat-widget__text">{{ text }}</p>
     </div>
     <div class="chat-widget__unreads">
-      <div class="chat-widget__unreads-box">
-        <span class="chat-widget__unreads-counter">{{ unreads }}</span>
-      </div>
+      {{#if unreads}}
+        <div class="chat-widget__unreads-box">
+          <span class="chat-widget__unreads-counter">{{ unreads }}</span>
+        </div>
+      {{/if}}
     </div>
   </div>
 </li>

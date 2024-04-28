@@ -1,38 +1,31 @@
-import { indexPage } from './pages/index';
-import { chatPage } from './pages/chat';
-import { signInPage } from './pages/sign-in';
-import { signUpPage } from './pages/sign-up';
-import { userSettingsPage } from './pages/user-settings';
-import { errorPage } from './pages/error-page';
+import { renderDOM } from './utils/render-dom';
 import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
 
-const content = document.querySelector('.main');
-const [_404ErrPage, _500ErrPage] = errorPage();
+import { 
+  indexPage,
+  _404Page,
+  _500Page,
+  signUpPage,
+  signInPage,
+  userSettingsPage,
+  chatPage,
+} from './pages';
 
-content!.innerHTML = indexPage();
+type Pages = '/' | '/sign-up' | '/sign-in' | '/404' | '/505' | '/user-settings' | '/chat';
 
-switch (window.location.pathname) {
-  case '/':
-    content!.innerHTML = indexPage();
-    break;
-  case '/sign-in':
-    content!.innerHTML = signInPage();
-    break;
-  case '/sign-up':
-    content!.innerHTML = signUpPage();
-    break;
-  case '/chat':
-    content!.innerHTML = chatPage();
-    break;
-  case '/user-settings':
-    content!.innerHTML = userSettingsPage();
-    break;
-  case '/404':
-    content!.innerHTML = _404ErrPage();
-    break;
-  case '/500':
-    content!.innerHTML = _500ErrPage();
-    break;
-} 
+function renderPage(p: Pages): void {
+  const renderers: Record<Pages, () => void> = {
+    '/': () => renderDOM('.main', indexPage),
+    '/sign-up': () => renderDOM('.main', signUpPage),
+    '/sign-in': () => renderDOM('.main', signInPage),
+    '/user-settings': () => renderDOM('.main', userSettingsPage),
+    '/404': () => renderDOM('.main', _404Page),
+    '/505': () => renderDOM('.main', _500Page),
+    '/chat': () => renderDOM('.main', chatPage),
+  };
+  renderers[p]();
+}
+
+renderPage(window.location.pathname as Pages);

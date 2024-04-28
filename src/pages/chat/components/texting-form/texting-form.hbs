@@ -1,13 +1,8 @@
-<form class="texting-form">
+<form class="texting-form" data-evt-submit="handleSubmit">
   <fieldset class="texting-form__input-fset">
-    <input class="texting-form__input" type="text" id="message" name="message" placeholder="Сообщение">
+    {{{ textingInput }}}
   </fieldset>
   <fieldset class="texting-form__btn-fset">
-    <button class="texting-form__btn" type="submit">
-      <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0.4" y="5.59995" width="10.2" height="0.8" fill="#031F30" stroke="#E0DDDD" stroke-width="0.8"/>
-        <path d="M7 1L11 6L7 11" stroke="#E0DDDD" stroke-width="1.6"/>
-      </svg>
-    </button>
+    {{{ sendButton }}}
   </fieldset>
 </form>

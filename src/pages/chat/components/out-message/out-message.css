@@ -2,7 +2,7 @@
   margin: 0;
   max-width: 45%;
   width: fit-content;
-  padding: 11px 11px 5px 11px;
+  padding: 11px 11px 5px;
   box-sizing: border-box;
   background: var(--out-msg-backgr);
   align-self: flex-end;
@@ -13,7 +13,7 @@
   &__text-wrapper {
     min-width: 114px;
     color: var(--msgs-text);
-    font: normal 500 12px/1.2 'Inter', sans-serif;
+    font: normal 500 12px/1.2 Inter, sans-serif;
   }
 
   &__message-state {
@@ -26,11 +26,11 @@
 
     & svg {
       display: block;
-      padding: 0 0 1px 0;
+      padding: 0 0 1px;
     }
   }
 
   &__timestamp {
-    font: normal 500 9px/1 'Inter', sans-serif;
+    font: normal 500 9px/1 Inter, sans-serif;
   }
 }

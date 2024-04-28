@@ -3,17 +3,30 @@
   flex: 0 0 54px;
   width: 100%;
   padding: 0 10px;
+
   @mixin flex column, , center, flex-end; 
+
+  &__btn-caption {
+    color: var(--chats-text);
+    transition: color .2s ease-in;
+  }
 
   &__btn {
     background: none;
     border: none;
     padding: 0;
+
     @mixin flex row, , flex-end, center;
+
     gap: 0 8px;
+
+    & svg path {
+      transition: stroke .2s ease-in;
+    }
 
     &:hover {
       cursor: pointer;
+
       & .get-profile__btn-caption {
         color: var(--msgs-text);
       }
@@ -22,14 +35,5 @@
         stroke: var(--msgs-text);
       }
     }
-
-    & svg path {
-      transition: stroke .2s ease-in;
-    }
-  }
-
-  &__btn-caption {
-    color: var(--chats-text);
-    transition: color .2s ease-in;
   }
 }

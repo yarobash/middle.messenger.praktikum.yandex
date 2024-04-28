@@ -2,8 +2,7 @@
   box-sizing: border-box;
   width: 100%;
   max-height: calc(100vh - 101px);
-  overflow-y: scroll;
-  overflow-x: hidde;
+  overflow: hidde scroll;
   
   &__list {
     list-style: none;

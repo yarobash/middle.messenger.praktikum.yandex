@@ -1,0 +1,11 @@
+<div class="user-input">
+  <div class="user-input__wrapper">
+    <label for="{{ name }}" class="user-input__lbl"> {{ label }}</label>
+    <input type="text"  class="user-input__inpt" name="{{ name }}" id="{{ name }}" value="{{ value }}" placeholder="{{ placeholder }}" data-evt-focusout="validateInput">
+  </div>
+  <div class="user-input__state">
+  </div>
+  <div class="user-input__error-wrapper">
+    <span class="sign-input-error">{{ errText }}</span>
+  </div>
+</div>

@@ -1,9 +1,7 @@
-import registerPartials from './partials';
-import context from './context';
-import signUp from './sign-up.hbs';
-import './index.css';
+import { signUpForm } from "./components/sign-up-form";
+import { FormWrapper } from "../../components/forms/form-wrapper";
 
-export function signUpPage(): string {
-  registerPartials();
-  return signUp(context);
-}
+export const signUpPage = new FormWrapper({
+  className: 'form-wrapper',
+  form: signUpForm,
+});

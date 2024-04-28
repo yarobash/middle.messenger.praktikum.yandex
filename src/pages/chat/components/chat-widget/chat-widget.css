@@ -11,16 +11,13 @@
   &__body {
     height: 100%;
     border-top: 1px solid var(--border-lines);
-
     display: grid;
-    grid-template-columns: 47px 1fr 47px;
-    grid-template-rows: 24px 44px;
-    grid-template-areas: "pic name-timestamp name-timestamp"
-                         "pic text-area unreads";
+    grid-template: "pic name-timestamp name-timestamp" 24px "pic text-area unreads" 44px / 47px 1fr 47px;
   }
 
   &__pic-box {
     grid-area: pic;
+
     @mixin flex column, , center, ;
   }
 
@@ -34,17 +31,18 @@
   &__name-timestamp {
     grid-area: name-timestamp;
     padding: 0 0 0 10px;
+
     @mixin flex row, , space-between, flex-end;
   }
 
   &__name {
-    font: normal 500 13px/1 'Inter', sans-serif;
+    font: normal 500 13px/1 Inter, sans-serif;
     color: var(--default-white);
     margin: 0;
   }
 
   &__timestamp {
-    font: normal 500 9px/1 'Inter', sans-serif;
+    font: normal 500 9px/1 Inter, sans-serif;
     color: var(--chats-text);
     margin: 0;
   }
@@ -52,6 +50,7 @@
   &__text-area {
     grid-area: text-area;
     padding: 6px 0 6px 10px;
+
     @mixin flex column, , flex-start, flex-start;
   }
 
@@ -60,7 +59,7 @@
     max-height: 30px;
     padding: 0;
     margin: 0;
-    font: normal 500 12px/15px 'Inter', sans-serif;
+    font: normal 500 12px/15px Inter, sans-serif;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -69,6 +68,7 @@
 
   &__unreads {
     grid-area: unreads;
+
     @mixin flex column, , center, flex-end;
   }
 
@@ -77,11 +77,12 @@
     height: 20px;
     background: var(--default-blue);
     border-radius: 20px;
+
     @mixin flex row, , center, center;
   }
 
   &__unreads-counter {
     color: var(--default-white);
-    font: normal 500 11px/1 'Inter', sans-serif;
+    font: normal 500 11px/1 Inter, sans-serif;
   }
 }

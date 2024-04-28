@@ -1,9 +1,8 @@
-import registerPartials from './partials';
-import context from './context'; 
-import signIn from './sign-in.hbs';
-import './index.css';
+import { FormWrapper } from '../../components/forms/form-wrapper';
+import { signInForm } from './components/sign-in-form';
+import './sign-in.css';
 
-export function signInPage(): string {
-  registerPartials();
-  return signIn(context);
-}
+export const signInPage = new FormWrapper({
+  className: 'form-wrapper',
+  form: signInForm,
+});

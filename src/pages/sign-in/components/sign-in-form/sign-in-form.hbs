@@ -1,17 +1,10 @@
-<form class="sign-in-form">
-  <p class="sign-in-form__title">Регистрация</p>
+<form class="sign-in-form" data-evt-submit="handleSubmit">
+  <p class="sign-in-form__title">Вход</p>
   <fieldset class="sign-in-form__inputs-fset">
-    <div class="sign-in-form__inpt-box">
-      <label for="login" class="sign-in-form__lbl">Логин</label>
-      <input type="text" class="sign-in-form__inpt" name="login" id="login" value="" placeholder="{{ login }}">
-    </div>
-    <div class="sign-in-form__inpt-box">
-      <label for="phone" class="sign-in-form__lbl">Пароль</label>
-      <input type="password"  class="sign-in-form__inpt" name="phone" id="phone" value="{{ pass }}" placeholder="{{ pass }}">
-    </div>
+    {{{ inputs }}}
   </fieldset>
   <fieldset class="sign-in-form__btn-fset">
-    <button class="sign-in-form__btn" type="submit">Войти</button>
+    {{{ button }}}
     <a href="/sign-up" class="sign-in-form__enter-link">Зарегистрироваться</p>
   </fieldset>
 </form>

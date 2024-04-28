@@ -1,0 +1,12 @@
+.texting-input {
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  outline: none;
+  font: normal 500 12/1.2 Inter, sans-serif;
+  background: var(--default-white);
+}

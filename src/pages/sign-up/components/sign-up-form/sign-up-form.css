@@ -4,8 +4,8 @@
   background: var(--default-white);
 
   &__title {
-    padding: 50px 0 40px 0;
-    font: normal 500 20px/1 'Inter', sans-serif;
+    padding: 50px 0 40px;
+    font: normal 500 20px/1 Inter, sans-serif;
     color: var(--chats-text);
     text-align: center;
   }
@@ -19,8 +19,10 @@
   &__inpt-box {
     width: 100%;
     height: 49px;
+
     @mixin flex column, , flex-start, flex-start;
-    padding: 0 0 12px 0;
+
+    padding: 0 0 12px;
 
     &:last-child {
       padding: 0;
@@ -28,20 +30,20 @@
   }
 
   &__lbl {
-    font: normal 500 9px/1 'Inter', sans-serif;
+    font: normal 500 9px/1 Inter, sans-serif;
     color: var(--chats-text);
   }
 
   &__inpt {
     box-sizing: border-box;
-    margin: 0 0 4px 0;
+    margin: 0 0 4px;
     padding: 0;
     width: 100%;
     height: 28px;
     border: none;
     background: transparent;
     border-bottom: 1px solid var(--default-blue);
-    font: normal 500 13px/1 'Inter', sans-serif;
+    font: normal 500 13px/1 Inter, sans-serif;
     outline: none;
 
     &_err {
@@ -63,21 +65,28 @@
 
   &__error {
     color: var(--default-red); 
-    font: normal normal 8px/1 'Inter', sans-serif;
+    font: normal normal 8px/1 Inter, sans-serif;
+    display: none;
+  }
+
+  &__error_show {
+    display: block;
   }
 
   &__btn-fset {
-    padding: 47px 0 30px 0;
+    padding: 47px 0 30px;
     margin: 0;
     border: none;
+
     @mixin flex column, , flex-start, center;
+
     gap: 14px 0;
   }
 
   &__enter-link {
     margin: 0;
     color: var(--default-blue);
-    font: normal normal 11px/1 'Inter', sans-serif;
+    font: normal normal 11px/1 Inter, sans-serif;
     transition: color .2s ease-in;
     text-decoration: none;
 
@@ -86,21 +95,4 @@
       color: var(--in-msg-backgr);
     }
   }
-
-  &__btn {
-    width: 280px;
-    height: 37px;
-    background: var(--default-blue);
-    border: none;
-    border-radius: 6px;
-    color: var(--msgs-text);
-    font: normal 500 13px/1 'Inter', sans-serif;
-    transition: background .2s ease-in;
-
-    &:hover {
-      cursor: pointer;
-      background: var(--in-msg-backgr);
-    }
-  }
-
 }
