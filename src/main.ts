@@ -1,4 +1,5 @@
-import { renderDOM } from './utils/render-dom';
+import renderDOM from './utils/render-dom';
+import { Paths } from './typings/paths';
 import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
@@ -13,10 +14,9 @@ import {
   chatPage,
 } from './pages';
 
-type Pages = '/' | '/sign-up' | '/sign-in' | '/404' | '/505' | '/user-settings' | '/chat';
 
-function renderPage(p: Pages): void {
-  const renderers: Record<Pages, () => void> = {
+function renderPage(p: Paths): void {
+  const renderers: Record<Paths, () => void> = {
     '/': () => renderDOM('.main', indexPage),
     '/sign-up': () => renderDOM('.main', signUpPage),
     '/sign-in': () => renderDOM('.main', signInPage),
@@ -28,4 +28,4 @@ function renderPage(p: Pages): void {
   renderers[p]();
 }
 
-renderPage(window.location.pathname as Pages);
+renderPage(window.location.pathname as Paths);

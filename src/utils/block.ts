@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 type Keys<T extends Record<string, unknown>> = keyof T;
 type Values<T extends Record<string, unknown>> = T[Keys<T>];
 
-export abstract class Block<P extends Record<string, any> = any> {
+export default abstract class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
