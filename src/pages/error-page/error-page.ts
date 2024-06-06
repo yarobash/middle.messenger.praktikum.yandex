@@ -1,6 +1,8 @@
 import { Block } from '../../utils';
 import { ErrorBox } from './components/error-box/error-box';
 import template from './error-page.hbs';
+import template404 from './template404.hbs';
+import template500 from './template500.hbs';
 import './error-page.css';
 
 const _404ErrorBox = new ErrorBox({
@@ -29,10 +31,32 @@ export class ErrorPage extends Block<ErrorPageProps> {
   }
 }
 
-export const _404Page = new ErrorPage({
-  errorBox: _404ErrorBox,
-});
+export class _404Page extends Block {
+  constructor(props: {}) {
+    super({
+      ...props,
+      _404ErrorPage: new ErrorPage({
+        errorBox: _404ErrorBox,
+      })
+    });
+  }
 
-export const _500Page = new ErrorPage({
-  errorBox: _500ErrorBox,
-});
+  render() {
+    return this.compile(template404, this.props);
+  }
+}
+
+export class _500Page extends Block {
+  constructor(props: {}) {
+    super({
+      ...props,
+      _500ErrorPage: new ErrorPage({
+        errorBox: _500ErrorBox,
+      })
+    });
+  }
+
+  render() {
+    return this.compile(template500, this.props);
+  }
+}

@@ -12,6 +12,7 @@ import { outMsg } from './components/out-message';
 import { attachBtn } from './components/attach-btn';
 import { texting } from './components/texting-form';
 import template from './chat.hbs';
+import chatPageTemplate from './chatPage.hbs';
 import './chat.css';
 
 const msgs = [inMsg, msgImg, outMsg];
@@ -42,18 +43,29 @@ class Chat extends Block<ChatProps> {
   }
 }
 
-export const chatPage = new Chat({
-  chatSettings,
-  getProfile,
-  searchChats,
-  chats,
-  curUser,
-  chatManage,
-  chatDate,
-  inMsg,
-  msgImg,
-  outMsg,
-  attachBtn,
-  texting,
-  msgs,
-});
+export default class ChatPage extends Block {
+  constructor(props: {}) {
+    super({
+      ...props,
+      Chat: new Chat({
+        chatSettings,
+        getProfile,
+        searchChats,
+        chats,
+        curUser,
+        chatManage,
+        chatDate,
+        inMsg,
+        msgImg,
+        outMsg,
+        attachBtn,
+        texting,
+        msgs,
+      }),
+    });
+  }
+  
+  render() {
+    return this.compile(chatPageTemplate, this.props);
+  }
+}

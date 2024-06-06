@@ -4,24 +4,22 @@ import './shared/styles/global.css';
 import { Router } from './utils';
 
 import { 
+  IndexPage,
   SignUpPage,
+  SignInPage,
+  ChatPage,
+  UserSettingsPage,
+  _404Page,
+  _500Page,
 } from './pages';
 
-
-/*
-function renderPage(p: Paths): void {
-  const renderers: Record<Paths, () => void> = {
-    '/': () => renderDOM('.main', indexPage),
-    '/sign-up': () => renderDOM('.main', signUpPage),
-    '/sign-in': () => renderDOM('.main', signInPage),
-    '/user-settings': () => renderDOM('.main', userSettingsPage),
-    '/404': () => renderDOM('.main', _404Page),
-    '/505': () => renderDOM('.main', _500Page),
-    '/chat': () => renderDOM('.main', chatPage),
-  };
-  renderers[p]();
-}
-*/
 const router = new Router('.main');
-router.use('/', SignUpPage)
+router
+.use('/', IndexPage)
+.use('/sign-up', SignUpPage)
+.use('/sign-in', SignInPage)
+.use('/chat', ChatPage)
+.use('/user-settings', UserSettingsPage)
+.use('/404', _404Page)
+.use('/500', _500Page)
 .start();

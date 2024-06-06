@@ -3,8 +3,8 @@ import { FormWrapper } from "../../components/forms/form-wrapper";
 import { Block } from '../../utils';
 import template from './template.hbs';
 
-export class SignUpPage extends Block {
-  constructor(props: FormWrapperProps) {
+export default class SignUpPage extends Block {
+  constructor(props: {}) {
     super({
       ...props,
       FormWrapper: new FormWrapper({

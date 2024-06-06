@@ -3,6 +3,7 @@ import { ButtonBack } from '../../components/buttons/btn-back';
 import { UserAvatar } from './components/user-avatar';
 import { userSettingsForm } from './components/user-settings-form';
 import template from './userSettings.hbs'; 
+import userSettingsPageTemplate from './userSettingsPage.hbs';
 import './user-settings.css';
 import './components/btn-back/btn-back.css';
 
@@ -25,8 +26,19 @@ class UserSettings extends Block<UserSettingsProps> {
   }
 }
 
-export const userSettingsPage = new UserSettings({
-  btnBack,
-  userAvatar,
-  userSettingsForm,
-});
+export default class UserSettingsPage extends Block{
+  constructor(props: {}) {
+    super({
+      ...props,
+      UserSettings: new UserSettings({
+        btnBack,
+        userAvatar,
+        userSettingsForm,
+      })
+    });
+  }
+
+  render() {
+    return this.compile(userSettingsPageTemplate, this.props);
+  }
+}
