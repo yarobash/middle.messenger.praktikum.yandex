@@ -1,20 +1,14 @@
-import renderDOM from './utils/render-dom';
-import { Paths } from './typings/paths';
 import './index.css';
 import './shared/styles/fonts.css';
 import './shared/styles/global.css';
+import { Router } from './utils';
 
 import { 
-  indexPage,
-  _404Page,
-  _500Page,
-  signUpPage,
-  signInPage,
-  userSettingsPage,
-  chatPage,
+  SignUpPage,
 } from './pages';
 
 
+/*
 function renderPage(p: Paths): void {
   const renderers: Record<Paths, () => void> = {
     '/': () => renderDOM('.main', indexPage),
@@ -27,5 +21,7 @@ function renderPage(p: Paths): void {
   };
   renderers[p]();
 }
-
-renderPage(window.location.pathname as Paths);
+*/
+const router = new Router('.main');
+router.use('/', SignUpPage)
+.start();

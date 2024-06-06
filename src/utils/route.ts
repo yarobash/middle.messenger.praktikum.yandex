@@ -4,36 +4,36 @@ import { Paths } from '../typings/paths';
 import Block from './block';
 
 export default class Route {
-  private view: typeof Block;
-  constructor(private path: Paths, private block: typeof Block, private props: P) {
-    this.path = path;
-    this.block = block;
-    this.props = props;
-  }
+  private block: Block | null = null;
+  constructor(
+    private path: Paths,
+    private view: new ({}) => Block,
+    private props: { rootQuery: string },
+  ) {}
 
-  public navigate(targetPath: Paths) {
-    if (this.match(targetPath)) {
-      this.path = targetPath;
+  public navigate(path: Paths) {
+    if (this.match(path)) {
+      this.path = path;
       this.render();
     }
   }
 
   public leave() {
-    if (this.view) {
-      this.view.hide();
+    if (this.block) {
+      this.block.hide();
     }
   }
 
-  private match(targetPath: Paths) {
+  public match(targetPath: Paths) {
     return isStringsEqual(targetPath, this.path);
   }
 
-  private render() {
-    if (!this.view) {
-      this.view = new this.block(this.props);
-      renderDOM(this.props.queryRoot, this.view);
+  render() {
+    if (!this.block) {
+      this.block = new this.view({});
+      renderDOM(this.props.rootQuery, this.block);
       return;
     }
-    this.view.show();
+    this.block.show();
   }
 }
