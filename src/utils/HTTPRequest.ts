@@ -13,67 +13,70 @@ enum Reason {
 }
 
 type Options = {
-  method: Method;
-  data?: any;
+  method: Method,
+  data?: Record<string, any>,
+  headers?: Record<string, string>,
 }
 
-export class HTTPRequest {
-  protected endpoint: string;
+type ExcludeKey<T extends Record<string, unknown>, P extends keyof T> = {[K in keyof T as K extends P ? never : K] : T[P]};
 
-  constructor(apiUrl: string, endpoint: string) {
-    this.endpoint = `${apiUrl}${endpoint}`;
+type DataHeadersOnly = ExcludeKey<Options, 'method'>;
 
-  }
+export default class HTTPRequest {
+  constructor(
+    private base: string
+  ) {}
 
-  public get<Response>(path = '/', data: unknown): Promise<Response> {
-    return this.request<Response>(`${this.endpoint}${path}`, {
+   get(path = '/', data?: Record<string, unknown>): Promise<XMLHttpRequest> {
+    return this.request(`${this.base}${path}`, {
       method: Method.Put,
       data,
     });
   }
 
-  public post<Response = void>(path: string, data?: unknown): Promise<Response> {
-    return this.request<Response>(`${this.endpoint}${path}`, {
+   post(path: string, data?: Record<string, unknown>): Promise<XMLHttpRequest> {
+    return this.request(`${this.base}${path}`, {
       method: Method.Post,
       data,
     });
   }
 
-  public put<Response = void>(path: string, data: unknown): Promise<Response> {
-    return this.request<Response>(`${this.endpoint}${path}`, {
+   put(path: string, data: Record<string, unknown>): Promise<XMLHttpRequest> {
+    return this.request(`${this.base}${path}`, {
       method: Method.Put,
       data,
     });
   }
 
-  public patch<Response = void>(path: string, data: unknown): Promise<Response> {
-    return this.request<Response>(`${this.endpoint}${path}`, {
+   patch(path: string, data: Record<string, unknown>): Promise<XMLHttpRequest> {
+    return this.request(`${this.base}${path}`, {
       method: Method.Patch,
       data,
     });
   }
 
-  public delete<Response>(path: string, data?: unknown): Promise<Response> {
-    return this.request<Response>(`${this.endpoint}${path}`, {
+   delete(path: string, data: DataHeadersOnly = {}): Promise<XMLHttpRequest> {
+    return this.request(`${this.base}${path}`, {
       method: Method.Delete,
-      data
+      data,
     });
   }
 
-  private stringifyQuery(data: any) {
-    const keys = Object.keys(data);
-    return keys.reduce((result, key, index) => {
-      return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
-    }, '?');
+  private queryToString(data: Record<string, unknown>): string {
+    return Object.entries(data).map(([key, value]) => `${key}=${value ?? ''}`).join('&');
   }
 
-  private request<Response>(url: string, options: Options = {method: Method.Get}): Promise<Response> {
-    const { method, data } = options;
+  private request(url: string, options: Options = {method: Method.Get}): Promise<XMLHttpRequest> {
+    const { method, headers, data } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      const isGet = method === Method.Get;
-      url = isGet && !!data ? `${url}${this.stringifyQuery(data)}` : data; 
+      if (method === Method.Get && data) url = `${url}${this.queryToString(data)}`;
+
+      if (headers) {
+        Object.entries(headers).forEach(([key, value]) => xhr.setRequestHeader(key, value));
+      }
+
       xhr.open(method, url);
 
       xhr.onreadystatechange = () => {
@@ -86,18 +89,20 @@ export class HTTPRequest {
         }
       };
 
+      xhr.withCredentials = true;
+
       xhr.onabort = () => reject({reason: Reason.Abort});
       xhr.onerror = () => reject({reason: Reason.Error});
       xhr.ontimeout = () => reject({reason: Reason.Timeout});
 
-      xhr.setRequestHeader('Content-Type', 'application/json');
 
-      xhr.withCredentials = true;
       xhr.responseType = 'json';
 
       if (method === Method.Get || !data) {
         xhr.send();
       } else {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(JSON.stringify(data));
       }
     });

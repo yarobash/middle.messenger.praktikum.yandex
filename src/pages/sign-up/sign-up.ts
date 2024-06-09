@@ -1,5 +1,5 @@
-import { signUpForm } from "./components/sign-up-form";
-import { FormWrapper } from "../../components/forms/form-wrapper";
+import { signUpForm } from './components/sign-up-form';
+import { FormWrapper } from '../../components/forms/form-wrapper';
 import { Block } from '../../utils';
 import template from './template.hbs';
 
